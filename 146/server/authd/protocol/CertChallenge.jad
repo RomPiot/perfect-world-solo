@@ -1,0 +1,54 @@
+// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.kpdus.com/jad.html
+// Decompiler options: packimports(3) 
+
+package protocol;
+
+import com.goldhuman.Common.CertVerify;
+import com.goldhuman.Common.Octets;
+import com.goldhuman.IO.Protocol.ProtocolException;
+import com.goldhuman.IO.Protocol.Rpc;
+import java.io.PrintStream;
+import org.apache.commons.logging.Log;
+
+// Referenced classes of package protocol:
+//            CertChallengeArg, CertChallengeRes, GAuthServer
+
+public final class CertChallenge extends Rpc
+{
+
+    public CertChallenge()
+    {
+    }
+
+    public void Server(com.goldhuman.IO.Protocol.Rpc.Data data, com.goldhuman.IO.Protocol.Rpc.Data data1)
+        throws ProtocolException
+    {
+        CertChallengeArg certchallengearg = (CertChallengeArg)data;
+        CertChallengeRes certchallengeres = (CertChallengeRes)data1;
+        try
+        {
+            certchallengeres.response.replace(CertVerify.getInstance().EncryptWithPrivate(certchallengearg.challenge.getBytes()));
+            GAuthServer.GetLog().info((new StringBuilder()).append("CertChallenge: challenge=").append(new String(CertVerify.encodeHex(certchallengearg.challenge.getBytes()))).append(",response=").append(new String(CertVerify.encodeHex(certchallengeres.response.getBytes()))).toString());
+        }
+        catch(Exception exception)
+        {
+            exception.printStackTrace(System.out);
+        }
+    }
+
+    public void Client(com.goldhuman.IO.Protocol.Rpc.Data data, com.goldhuman.IO.Protocol.Rpc.Data data1)
+        throws ProtocolException
+    {
+        CertChallengeArg certchallengearg = (CertChallengeArg)data;
+        CertChallengeRes certchallengeres = (CertChallengeRes)data1;
+        System.out.println("CertChallenge::Client");
+        Octets octets = new Octets(0);
+        octets.replace(CertVerify.getInstance().DecryptWithPublic(certchallengeres.response.getBytes()));
+        System.out.println((new StringBuilder()).append("CertChallenge Client: challenge=").append(new String(CertVerify.encodeHex(certchallengearg.challenge.getBytes()))).append(",decode=").append(new String(CertVerify.encodeHex(octets.getBytes()))).toString());
+    }
+
+    public void OnTimeout()
+    {
+    }
+}

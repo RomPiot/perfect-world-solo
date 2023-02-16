@@ -1,0 +1,66 @@
+// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.kpdus.com/jad.html
+// Decompiler options: packimports(3) 
+
+package protocol;
+
+import com.goldhuman.Common.Conf;
+import com.goldhuman.Common.Marshal.MarshalException;
+import com.goldhuman.Common.Marshal.OctetsStream;
+import com.goldhuman.IO.Protocol.*;
+import java.io.PrintStream;
+
+// Referenced classes of package protocol:
+//            AuTestClient
+
+public final class CertFinish extends Protocol
+{
+
+    public CertFinish()
+    {
+    }
+
+    public OctetsStream marshal(OctetsStream octetsstream)
+    {
+        octetsstream.marshal(reserved1);
+        return octetsstream;
+    }
+
+    public OctetsStream unmarshal(OctetsStream octetsstream)
+        throws MarshalException
+    {
+        reserved1 = octetsstream.unmarshal_int();
+        return octetsstream;
+    }
+
+    public Object clone()
+    {
+        try
+        {
+            CertFinish certfinish = (CertFinish)super.clone();
+            return certfinish;
+        }
+        catch(Exception exception)
+        {
+            return null;
+        }
+    }
+
+    public void Process(Manager manager, Session session)
+        throws ProtocolException
+    {
+        Conf conf = Conf.GetInstance();
+        String s = AuTestClient.GetInstance().Identification();
+        try
+        {
+            AuTestClient.GetInstance().s.SetOSecurity(conf.find(s, "osec").trim(), AuTestClient.GetInstance().d_key1);
+        }
+        catch(Exception exception)
+        {
+            exception.printStackTrace(System.out);
+        }
+        System.out.println((new StringBuilder()).append("CertFinish:reserved1=").append(reserved1).toString());
+    }
+
+    public int reserved1;
+}

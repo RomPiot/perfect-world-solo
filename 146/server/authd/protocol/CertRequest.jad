@@ -1,0 +1,68 @@
+// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.kpdus.com/jad.html
+// Decompiler options: packimports(3) 
+
+package protocol;
+
+import com.goldhuman.Common.CertVerify;
+import com.goldhuman.Common.Marshal.MarshalException;
+import com.goldhuman.Common.Marshal.OctetsStream;
+import com.goldhuman.Common.Octets;
+import com.goldhuman.IO.Protocol.*;
+import org.apache.commons.logging.Log;
+
+// Referenced classes of package protocol:
+//            CertAnswer, GAuthServer
+
+public final class CertRequest extends Protocol
+{
+
+    public CertRequest()
+    {
+    }
+
+    public OctetsStream marshal(OctetsStream octetsstream)
+    {
+        octetsstream.marshal(reserved1);
+        return octetsstream;
+    }
+
+    public OctetsStream unmarshal(OctetsStream octetsstream)
+        throws MarshalException
+    {
+        reserved1 = octetsstream.unmarshal_int();
+        return octetsstream;
+    }
+
+    public Object clone()
+    {
+        try
+        {
+            CertRequest certrequest = (CertRequest)super.clone();
+            return certrequest;
+        }
+        catch(Exception exception)
+        {
+            return null;
+        }
+    }
+
+    public void Process(Manager manager, Session session)
+        throws ProtocolException
+    {
+        try
+        {
+            CertAnswer certanswer = (CertAnswer)Protocol.Create("CERTANSWER");
+            certanswer.authd_cert.replace(CertVerify.getInstance().getDER());
+            certanswer.reserved1 = 0;
+            manager.Send(session, certanswer);
+            GAuthServer.GetLog().info("CertRequest: return authd_cert local.");
+        }
+        catch(Exception exception)
+        {
+            exception.printStackTrace(System.out);
+        }
+    }
+
+    public int reserved1;
+}

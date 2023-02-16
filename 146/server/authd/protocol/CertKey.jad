@@ -1,0 +1,100 @@
+// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.kpdus.com/jad.html
+// Decompiler options: packimports(3) 
+
+package protocol;
+
+import com.goldhuman.Common.CertVerify;
+import com.goldhuman.Common.Conf;
+import com.goldhuman.Common.Marshal.MarshalException;
+import com.goldhuman.Common.Marshal.OctetsStream;
+import com.goldhuman.Common.Octets;
+import com.goldhuman.IO.Protocol.*;
+import org.apache.commons.logging.Log;
+
+// Referenced classes of package protocol:
+//            CertFinish, GAuthServer
+
+public final class CertKey extends Protocol
+{
+
+    public CertKey()
+    {
+        d_key1_encrypt = new Octets();
+        d_key2_encrypt = new Octets();
+    }
+
+    public OctetsStream marshal(OctetsStream octetsstream)
+    {
+        octetsstream.marshal(d_key1_encrypt);
+        octetsstream.marshal(d_key2_encrypt);
+        octetsstream.marshal(reserved1);
+        return octetsstream;
+    }
+
+    public OctetsStream unmarshal(OctetsStream octetsstream)
+        throws MarshalException
+    {
+        octetsstream.unmarshal(d_key1_encrypt);
+        octetsstream.unmarshal(d_key2_encrypt);
+        reserved1 = octetsstream.unmarshal_int();
+        return octetsstream;
+    }
+
+    public Object clone()
+    {
+        try
+        {
+            CertKey certkey = (CertKey)super.clone();
+            certkey.d_key1_encrypt = (Octets)d_key1_encrypt.clone();
+            certkey.d_key2_encrypt = (Octets)d_key2_encrypt.clone();
+            return certkey;
+        }
+        catch(Exception exception)
+        {
+            return null;
+        }
+    }
+
+    public void Process(Manager manager, Session session)
+        throws ProtocolException
+    {
+        Octets octets = new Octets(0);
+        Octets octets1 = new Octets(0);
+        try
+        {
+            octets.replace(CertVerify.getInstance().DecryptWithPrivate(d_key1_encrypt.getBytes()));
+            octets1.replace(CertVerify.getInstance().DecryptWithPrivate(d_key2_encrypt.getBytes()));
+        }
+        catch(Exception exception)
+        {
+            exception.printStackTrace(System.out);
+        }
+        Conf conf = Conf.GetInstance();
+        String s = GAuthServer.GetInstance().Identification();
+        try
+        {
+            session.SetISecurity(conf.find(s, "isec").trim(), octets);
+        }
+        catch(Exception exception1)
+        {
+            exception1.printStackTrace(System.out);
+        }
+        try
+        {
+            session.SetOSecurity(conf.find(s, "osec").trim(), octets1);
+        }
+        catch(Exception exception2)
+        {
+            exception2.printStackTrace(System.out);
+        }
+        CertFinish certfinish = (CertFinish)Protocol.Create("CERTFINISH");
+        certfinish.reserved1 = 0;
+        manager.Send(session, certfinish);
+        GAuthServer.GetLog().info((new StringBuilder()).append("CertKey: d_key1_encrypt=").append(new String(CertVerify.encodeHex(d_key1_encrypt.getBytes()))).append(",d_key2_encrpyt=").append(new String(CertVerify.encodeHex(d_key2_encrypt.getBytes()))).append(",d_key1=").append(new String(CertVerify.encodeHex(octets.getBytes()))).append(",d_key2=").append(new String(CertVerify.encodeHex(octets1.getBytes()))).toString());
+    }
+
+    public Octets d_key1_encrypt;
+    public Octets d_key2_encrypt;
+    public int reserved1;
+}

@@ -1,0 +1,53 @@
+// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.kpdus.com/jad.html
+// Decompiler options: packimports(3) 
+
+package protocol;
+
+import com.goldhuman.Common.Marshal.MarshalException;
+import com.goldhuman.Common.Marshal.OctetsStream;
+import com.goldhuman.Common.Octets;
+import com.goldhuman.IO.Protocol.Rpc;
+
+public final class CertChallengeArg extends com.goldhuman.IO.Protocol.Rpc.Data
+{
+
+    public CertChallengeArg()
+    {
+        challenge = new Octets();
+        reserved = new Octets();
+    }
+
+    public OctetsStream marshal(OctetsStream octetsstream)
+    {
+        octetsstream.marshal(challenge);
+        octetsstream.marshal(reserved);
+        return octetsstream;
+    }
+
+    public OctetsStream unmarshal(OctetsStream octetsstream)
+        throws MarshalException
+    {
+        octetsstream.unmarshal(challenge);
+        octetsstream.unmarshal(reserved);
+        return octetsstream;
+    }
+
+    public Object clone()
+    {
+        try
+        {
+            CertChallengeArg certchallengearg = (CertChallengeArg)super.clone();
+            certchallengearg.challenge = (Octets)challenge.clone();
+            certchallengearg.reserved = (Octets)reserved.clone();
+            return certchallengearg;
+        }
+        catch(Exception exception)
+        {
+            return null;
+        }
+    }
+
+    public Octets challenge;
+    public Octets reserved;
+}

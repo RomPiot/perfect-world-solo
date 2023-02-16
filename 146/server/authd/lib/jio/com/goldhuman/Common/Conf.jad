@@ -1,0 +1,146 @@
+// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.kpdus.com/jad.html
+// Decompiler options: packimports(3) 
+
+package com.goldhuman.Common;
+
+import java.io.*;
+import java.net.URI;
+import java.net.URL;
+import java.util.HashMap;
+
+public final class Conf
+{
+
+    private Conf()
+    {
+        charset = new String("GBK");
+        confhash = new HashMap();
+    }
+
+    private void parse(BufferedReader bufferedreader)
+        throws IOException
+    {
+        String s = null;
+        HashMap hashmap = new HashMap();
+        confhash.clear();
+        do
+        {
+            if(!bufferedreader.ready())
+                break;
+            String s1 = bufferedreader.readLine().trim();
+            if(s1.length() != 0)
+            {
+                char c = s1.charAt(0);
+                if(c != '#' && c != ';')
+                    if(c == '[')
+                    {
+                        s1 = s1.substring(1, s1.indexOf(']')).trim();
+                        if(s != null)
+                        {
+                            confhash.put(s, hashmap);
+                            hashmap = new HashMap();
+                        }
+                        s = s1;
+                    } else
+                    {
+                        String as[] = s1.split("=", 2);
+                        hashmap.put(as[0].trim(), as[1].trim());
+                    }
+            }
+        } while(true);
+        if(s != null)
+            confhash.put(s, hashmap);
+    }
+
+    private void reload()
+    {
+        try
+        {
+            for(long l = conffile.lastModified(); l != mtime; l = conffile.lastModified())
+            {
+                mtime = l;
+                URL url = conffile.toURI().toURL();
+                BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(url.openStream(), charset));
+                parse(bufferedreader);
+                bufferedreader.close();
+            }
+
+        }
+        catch(Exception exception)
+        {
+            exception.printStackTrace();
+        }
+    }
+
+    public synchronized String find(String s, String s1)
+    {
+        HashMap hashmap = (HashMap)confhash.get(s);
+        if(hashmap != null)
+        {
+            String s2 = (String)hashmap.get(s1);
+            if(s2 != null)
+                return new String(s2);
+        }
+        return new String();
+    }
+
+    public synchronized void put(String s, String s1, String s2)
+    {
+        HashMap hashmap = (HashMap)confhash.get(s);
+        if(null == hashmap)
+        {
+            hashmap = new HashMap();
+            confhash.put(s, hashmap);
+        }
+        hashmap.put(s1, s2);
+    }
+
+    public static synchronized Conf GetInstance(String s, String s1)
+    {
+        if(s1 != null)
+            instance.charset = s1;
+        File file = new File(s);
+        if(file.isFile())
+        {
+            instance.conffile = file;
+            instance.reload();
+        }
+        return instance;
+    }
+
+    public static synchronized Conf GetInstance(URL url, String s)
+    {
+        try
+        {
+            if(s != null)
+                instance.charset = s;
+            BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(url.openStream(), instance.charset));
+            instance.parse(bufferedreader);
+            bufferedreader.close();
+        }
+        catch(Exception exception)
+        {
+            exception.printStackTrace();
+        }
+        return instance;
+    }
+
+    public static synchronized Conf GetInstance()
+    {
+        return instance;
+    }
+
+    public static void main(String args[])
+    {
+        GetInstance(args[0], null);
+        System.out.println(GetInstance().find(args[1], args[2]));
+    }
+
+    private static Conf instance = new Conf();
+    private File conffile;
+    private long mtime;
+    private HashMap confhash;
+    private String charset;
+
+}

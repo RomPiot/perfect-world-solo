@@ -1,0 +1,9 @@
+
+#!/bin/sh
+#while true; do
+cd /PWServer/146/authd
+
+/usr/java/jre1.6.0_12/bin/java -cp /PWServer/146/authd/lib/mysql.jar:/PWServer/146/authd/lib/jio.jar:/PWServer/146/authd/lib/application.jar:/PWServer/146/authd/lib/commons-collections-3.1.jar:/PWServer/146/authd/lib/commons-dbcp-1.2.1.jar:/PWServer/146/authd/lib/commons-pool-1.2.jar:/PWServer/146/authd/lib/commons-logging-1.0.4.jar:/PWServer/146/authd/lib/log4j-1.2.9.jar:.:$CLASSPATH authd table.xml 123456
+sleep 1
+
+#done

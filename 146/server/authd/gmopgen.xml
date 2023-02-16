@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="rpcalls.xsl"?>
+<application namespace="GNET">
+	<operation description="Switch player's name and ID" name="Toggle_NameID" type="0"/> 
+	<operation description="Turn into hidden or invincible status" name="Hide_BeGod" type="1"/> 
+	<operation description="Switch online status" name="Online_OrNot" type="2"/>  
+	<operation description="Switch whether private talk is allowed" name="Chat_OrNot" type="3"/>  
+	<operation description="Move to near the designated role" name="MoveTo_Role" type="4"/> 
+	<operation description="Summon the designated role to near GM" name="Fetch_Role" type="5"/> 
+	<operation description="Move to the designated place" name="Move_AsWill" type="6"/> 
+	<operation description="Move to designated NPC" name="MoveTo_NPC" type="7"/> 
+	<operation description="Move to designated map (copy)" name="MoveTo_Map" type="8"/> 
+	<operation description="Enhance Speed" name="Enhance_Speed" type="9"/>  
+	<operation description="Follow player" name="Follow" type="10"/>  
+	<operation description="Obtain the list of online players" name="ListUser" type="11"/>  
+	<!--***  level-2 ***-->
+	<operation description="Force to be offline" name="Force_Offline" type="100"/>  
+	<operation description="Forbid talking" name="Forbid_Talk" type="101"/>   
+	<operation description="Forbid trades among players, and between player and NPC" name="Forbid_Trade" type="102"/> 
+	<operation description="Forbid selling" name="Forbid_Sell" type="103"/>   
+	<operation description="System broadcast" name="Broadcast" type="104"/>  
+	<operation description="close game server" name="Shutdown_GameServer" type="105"/> 
+	<!--*** level-3 ***-->
+	<operation description="Summon monster" name="Summon_Monster" type="200"/> 
+	<operation description="Dispel the articles summoned" name="Dispel_Summon" type="201"/> 
+	<operation description="Disguise" name="Pretend" type="202"/> 
+	<operation description="GM administrator" name="GMMaster" type="203"/>  
+	<operation description="Double experience" name="DoubleExp" type="204"/>  
+	<operation description="Concurrent connection number" name="Lambda" type="205"/>  
+	<operation description="Activity administrator " name="ActivityManager" type="206"/> 
+	<operation description="Forbid trade among players" name="NoTrade" type="207"/>  
+	<operation description="Forbid auction operation" name="NoAuction" type="208"/> 
+	<operation description="Forbid email operation" name="NoMail" type="209"/>  
+	<operation description="Forbid clan operation" name="NoFaction" type="210"/>  
+	<operation description="Double drop of money" name="DoubleMoney" type="211"/> 
+	<operation description="Double drop of article" name="DoubleObject" type="212"/>  
+	<operation description="Double skill point" name="DoubleSP" type="213"/>   
+	<operation description="Forbid point card selling" name="NoSellPoint" type="214"/> 
+
+	<!-- system department -->
+	<operation description="Change role" name="ModifyRoleInfo" type="501"/>  
+	<operation description="check running status of server" name="ViewStatus" type="502"/>  
+	<operation description="check log" name="ViewLog" type="503"/>  
+	<operation description="Forcefully close and reboot game server" name="ForceRestartGame" type="504"/>  
+	<operation description="Forcefully close and reboot database server" name="ForceRestartDB" type="505"/>  
+	<operation description="Check ID" name="QueryRoleID" type="506"/>  
+	<operation description="Role info" name="QueryRoleInfo" type="507"/> 
+	<operation description="Role status" name="QueryRoleStatus" type="508"/>  
+	<operation description="Present designated role with gifts" name="Present" type="509"/>  
+
+	<operation description="Forbidden account record" name="GetUserForbids" type="510"/> 
+	<operation description="Inserting record" name="GetUserCardused" type="511"/>  
+	<operation description="Check balance" name="GetUserPoints" type="512"/>   
+	<operation description="Modify balance" name="UpdateUserPoint" type="513"/>  
+	<operation description="Account info" name="GetUserInfoByName" type="514"/>  
+	<operation description="Account modification" name="UpdateUserInfoByName" type="515"/>  
+	<operation description="Remove ban" name="UnkickUser" type="516"/>  
+	<operation description="Role list" name="GetRoleList" type="517"/>  
+	<operation description="Change password" name="UpdateAccountPasswd" type="518"/> 
+
+	<zone aid="1" delivery="127.0.0.1" gacdport="29712" id="1" location="GameHaze" name="iWeb" url="http://127.0.0.1:8080/iweb/manage" url2=""/>
+
+</application>

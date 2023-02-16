@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="table.xsl"?>
+
+<application debug="false" >
+
+<driver name="com.mysql.jdbc.Driver" />
+<connection name="auth0" poolsize="3" url="jdbc:mysql://localhost:3306/dbo?useUnicode=true&amp;characterEncoding=utf8" username="root" password="root"/>
+
+<table name="users" connection="auth0" operate="replaceA"> 
+	<column name="id"           sql-type="integer"     java-type="java.lang.Integer" not-null="true" />
+	<column name="name"         sql-type="varchar(32)" java-type="java.lang.String"  not-null="true" />
+	<column name="passwd"       sql-type="binary(16)"  java-type="java.lang.reflect.Array"  not-null="true" />
+	<column name="prompt"       sql-type="varchar(32)" java-type="java.lang.String"  not-null="true" />
+	<column name="answer"       sql-type="varchar(32)" java-type="java.lang.String"  not-null="true" />
+	<column name="truename"     sql-type="varchar(32)" java-type="java.lang.String"  not-null="true" />
+	<column name="idnumber"     sql-type="varchar(32)" java-type="java.lang.String"  not-null="true" />
+	<column name="email"        sql-type="varchar(64)" java-type="java.lang.String"  not-null="true" />
+	<column name="mobilenumber" sql-type="varchar(32)" java-type="java.lang.String"  not-null="false" />
+	<column name="province"     sql-type="varchar(32)" java-type="java.lang.String"  not-null="false" />
+	<column name="city"         sql-type="varchar(32)" java-type="java.lang.String"  not-null="false" />
+	<column name="phonenumber"  sql-type="varchar(32)" java-type="java.lang.String"  not-null="false" />
+	<column name="address"      sql-type="varchar(64)" java-type="java.lang.String"  not-null="false" />
+	<column name="postalcode"   sql-type="varchar(8)"  java-type="java.lang.String"  not-null="false" />
+	<column name="gender"       sql-type="integer"     java-type="java.lang.Integer" not-null="false" />
+	<column name="birthday"     sql-type="datetime"    java-type="java.util.Date"    not-null="false" />
+	<column name="creatime"     sql-type="datetime"    java-type="java.util.Date"    not-null="true" />
+	<column name="qq"           sql-type="varchar(32)" java-type="java.lang.String"  not-null="false" />
+	<column name="passwd2"      sql-type="binary(16)"  java-type="java.lang.reflect.Array"  not-null="false" />
+
+	<primarykey name="pk_id" column="id" />
+	<index name="ind_name" unique="true" column="name" />
+	<index name="ind_creatime" column="creatime" />
+</table>
+
+<table name="iplimit" connection="auth0" operate="replaceA">
+	<column name="uid"          sql-type="integer"     java-type="java.lang.Integer" not-null="true" />
+	<column name="ipaddr1"      sql-type="integer"     java-type="java.lang.Integer" not-null="false" />
+	<column name="ipmask1"      sql-type="varchar(2)"  java-type="java.lang.String" not-null="false" />
+	<column name="ipaddr2"      sql-type="integer"     java-type="java.lang.Integer" not-null="false" />
+	<column name="ipmask2"      sql-type="varchar(2)"  java-type="java.lang.String" not-null="false" />
+	<column name="ipaddr3"      sql-type="integer"     java-type="java.lang.Integer" not-null="false" />
+	<column name="ipmask3"      sql-type="varchar(2)"  java-type="java.lang.String" not-null="false" />
+	<column name="enable"       sql-type="char(1)"     java-type="java.lang.String" not-null="false" />
+	<column name="lockstatus"   sql-type="char(1)"     java-type="java.lang.String" not-null="false" />
+
+	<primarykey name="pk_iplimit" column="uid" />
+</table>
+
+<table name="auth" connection="auth0" operate="replaceA">
+	<column name="userid"       sql-type="integer"     java-type="java.lang.Integer" not-null="true" />
+	<column name="zoneid"      	sql-type="integer"     java-type="java.lang.Integer" not-null="true" />
+	<column name="rid"          sql-type="integer"     java-type="java.lang.Integer" not-null="true" />
+	<primarykey name="pk_id" column="userid, zoneid, rid" />
+</table>
+
+<table name="forbid" connection="auth0" operate="replaceA">
+	<column name="userid"       sql-type="integer"      java-type="java.lang.Integer" not-null="true" />
+	<column name="type"	        sql-type="integer"      java-type="java.lang.Integer" not-null="true" />
+	<column name="ctime"        sql-type="datetime"     java-type="java.util.Date" 	 not-null="true" />
+	<column name="forbid_time"  sql-type="integer"      java-type="java.lang.Integer" not-null="true" />
+	<column name="reason"     sql-type="varbinary(255)" java-type="java.lang.reflect.Array" not-null="true" />
+	<column name="gmroleid"     sql-type="integer"      java-type="java.lang.Integer" not-null="false"/>
+
+	<primarykey name="pk_id" column="userid,type" />
+</table>
+
+<table name="point" connection="auth0" operate="replaceA">
+	<column name="uid"          sql-type="integer"     java-type="java.lang.Integer" not-null="true" />
+	<column name="aid"          sql-type="integer"     java-type="java.lang.Integer" not-null="true" />
+	<column name="time"         sql-type="integer"     java-type="java.lang.Integer" not-null="true" />
+	<column name="zoneid"       sql-type="integer"     java-type="java.lang.Integer" not-null="false" />
+	<column name="zonelocalid"  sql-type="integer"     java-type="java.lang.Integer" not-null="false" />
+	<column name="accountstart" sql-type="datetime"    java-type="java.util.Date"    not-null="false" />
+	<column name="lastlogin"    sql-type="datetime"    java-type="java.util.Date"    not-null="false" />
+	<column name="enddate"      sql-type="datetime"    java-type="java.util.Date"    not-null="false" />
+
+	<primarykey name="pk_id" column="uid, aid" />
+	<index name="ind_aid" column="aid,zoneid" />
+</table>
+
+<table name="usecashnow" connection="auth0" operate="replaceA">
+	<column name="userid" sql-type="integer" java-type="java.lang.Integer" not-null="true"/>
+	<column name="zoneid" sql-type="integer" java-type="java.lang.Integer" not-null="true"/>
+	<column name="sn"     sql-type="integer" java-type="java.lang.Integer" not-null="true"/>
+	<column name="aid"    sql-type="integer" java-type="java.lang.Integer" not-null="true"/>
+	<column name="point"  sql-type="integer" java-type="java.lang.Integer" not-null="true"/>
+	<column name="cash"   sql-type="integer" java-type="java.lang.Integer" not-null="true"/>
+	<!--status 1.create; 2.get sn; 3.send addcash; 4.finish; -->
+	<column name="status" sql-type="integer"  java-type="java.lang.Integer" not-null="true"/>
+	<column name="creatime" sql-type="datetime" java-type="java.util.Date"  not-null="true"/>
+
+	<primarykey name="pk_usecashnow" column="userid, zoneid, sn" />
+	<index name="ind_usecashnow_status" column="status" />
+	<index name="ind_usecashnow_creatime" column="creatime" />
+</table>
+
+<table name="usecashlog" connection="auth0" operate="replaceA">
+	<column name="userid" sql-type="integer" java-type="java.lang.Integer" not-null="true"/>
+	<column name="zoneid" sql-type="integer" java-type="java.lang.Integer" not-null="true"/>
+	<column name="sn"     sql-type="integer" java-type="java.lang.Integer" not-null="true"/>
+	<column name="aid"    sql-type="integer" java-type="java.lang.Integer" not-null="true"/>
+	<column name="point"  sql-type="integer" java-type="java.lang.Integer" not-null="true"/>
+	<column name="cash"   sql-type="integer" java-type="java.lang.Integer" not-null="true"/>
+	<column name="status" sql-type="integer"  java-type="java.lang.Integer" not-null="true"/>
+	<column name="creatime" sql-type="datetime" java-type="java.util.Date"  not-null="true"/>
+	<column name="fintime" sql-type="datetime" java-type="java.util.Date"  not-null="true"/>
+
+	<index name="ind_usecashlog_uzs" column="userid, zoneid, sn" />
+	<index name="ind_usecashlog_creatime" column="creatime" />
+</table>
+
+<query name="getUserid">
+	<table name="users" alias="u" />
+	<column name="id" column="u.id" />
+	<select name="byName" condition="WHERE u.name = ?" />
+</query>
+
+<query name="getUserInfo">
+	<table name="users" alias="u" />
+	<column name="id" column="u.id" />
+	<column name="prompt" column="u.prompt" />
+	<column name="answer" column="u.answer" />
+	<column name="truename" column="u.truename" />
+	<column name="idnumber" column="u.idnumber" />
+	<column name="email" column="u.email" />
+	<column name="mobilenumber" column="u.mobilenumber" />
+	<column name="province" column="u.province" />
+	<column name="city" column="u.city" />
+	<column name="phonenumber" column="u.phonenumber" />
+	<column name="address" column="u.address" />
+	<column name="postalcode" column="u.postalcode" />
+	<column name="gender" column="u.gender" />
+	<column name="birthday" column="u.birthday" />
+	<column name="creatime" column="u.creatime" />
+	<column name="qq" column="u.qq" />
+	<select name="byName" condition="WHERE u.name = ?" />
+</query>
+
+<query name="getUsername">
+	<table name="users" alias="u" />
+	<column name="name" column="u.name" />
+	<select name="byId" condition="WHERE u.id = ?"/>
+</query>
+
+<query name="acquireIdPasswd">
+	<table name="users" alias="u" />
+	<column name="id" column="u.id" />
+	<column name="passwd" column="u.passwd" />
+	<column name="creatime" column="u.creatime" />
+	<select name="byName" condition="WHERE u.name = ?"/>
+</query>
+
+<query name="acquireIdPasswd2">
+	<table name="users" alias="u" />
+	<column name="id" column="u.id" />
+	<column name="passwd2" column="u.passwd2" />
+	<select name="byName" condition="WHERE u.name = ?"/>
+</query>
+
+<query name="acquireUserCreatime">
+	<table name="users" alias="u" />
+	<column name="creatime" column="u.creatime" />
+	<select name="byUid" condition="WHERE u.id = ?"/>
+</query>
+
+<query name="getIPLimit">
+	<table name="iplimit" alias="i" />
+	<column name="uid" column="i.uid" />
+	<column name="ipaddr1" column="i.ipaddr1" />
+	<column name="ipmask1" column="i.ipmask1" />
+	<column name="ipaddr2" column="i.ipaddr2" />
+	<column name="ipmask2" column="i.ipmask2" />
+	<column name="ipaddr3" column="i.ipaddr3" />
+	<column name="ipmask3" column="i.ipmask3" />
+	<column name="enablue" column="i.enable" />
+	<column name="lockstatus" column="i.lockstatus" />
+	<select name="byUid" condition="WHERE i.uid = ?"/>
+</query>
+
+<query name="acquireUserPrivilege">
+	<table name="auth" alias="au" />
+	<column name="rid" column="au.rid" />
+	<select name="byUidZid" condition="WHERE au.userid = ? AND au.zoneid = ?"/>
+</query>
+
+<query name="acquirePrivilege">
+	<table name="auth" alias="au" />
+	<table name="users" alias="users" />
+	<column name="userid" column="au.userid" />
+	<column name="zoneid" column="au.zoneid" />
+	<column name="rid" column="au.rid" />
+	<column name="name" column="users.name" />
+	<column name="creatime" column="users.creatime" />
+	<select name="byZid" condition="WHERE au.userid = users.id AND au.zoneid = ?"/>
+	<select name="byUid" condition="WHERE au.userid = users.id AND au.userid = ?"/>
+	<select name="byUidZid" condition="WHERE au.userid = users.id AND au.userid = ? AND au.zoneid = ?"/>
+	<select name="byRidZid" condition="WHERE au.userid = users.id AND au.rid = ? AND au.zoneid = ?"/>
+	<select name="byAll" condition="WHERE au.userid = users.id"/>
+</query>
+
+<query name="acquireForbid">
+	<table name="forbid" alias="fb"/>
+	<column name="userid" column="fb.userid"/>
+	<column name="type" column="fb.type"/>
+	<column name="ctime" column="fb.ctime"/>
+	<column name="forbid_time" column="fb.forbid_time"/>
+	<column name="reason" column="fb.reason"/>
+	<column name="gmroleid" column="fb.gmroleid"/>
+	<select name="byUid" condition="WHERE fb.userid = ? and time_to_sec(timediff(Now(),fb.ctime))&lt;=fb.forbid_time"/>
+</query>
+
+<query name="getUserOnlineInfo">
+	<table name="point" alias="p"/>
+	<column name="zoneid" column="p.zoneid"/>
+	<column name="localsid" column="p.zonelocalid"/>
+	<column name="aid" column="p.aid"/>
+	<select name="byUid" condition="WHERE p.uid = ?"/>
+</query>
+
+<query name="getUserPoints">
+	<table name="point" alias="p" />
+	<column name="aid" column="p.aid" />
+	<column name="time" column="p.time" />
+	<column name="enddate" column="p.enddate" />
+	<select name="byuid" condition="where p.uid=? and NOT p.aid=0" />
+</query>
+
+<query name="getusecashnow">
+	<table name="usecashnow" alias="u"/>
+	<column name="userid" column="u.userid"/>
+	<column name="zoneid" column="u.zoneid"/>
+	<column name="sn" column="u.sn"/>
+	<column name="aid" column="u.aid"/>
+	<column name="point" column="u.point"/>
+	<column name="cash" column="u.cash"/>
+	<column name="status" column="u.status"/>
+	<column name="creatime" column="u.creatime"/>
+
+	<select name="bystatus" condition="WHERE status = ? AND creatime &lt; date_add(now(), INTERVAL '-200' SECOND)"/>
+	<select name="byuserzone" condition="WHERE u.userid = ? AND u.zoneid = ?"/>
+	<select name="byuserzonesn" condition="WHERE u.userid = ? AND u.zoneid = ? AND u.sn = ?"/>
+	<select name="byuser" condition="WHERE u.userid = ?"/>
+</query>
+
+<query name="getusecashlog">
+	<table name="usecashlog" alias="u"/>
+	<column name="userid" column="u.userid"/>
+	<column name="zoneid" column="u.zoneid"/>
+	<column name="sn" column="u.sn"/>
+	<column name="aid" column="u.aid"/>
+	<column name="point" column="u.point"/>
+	<column name="cash" column="u.cash"/>
+	<column name="status" column="u.status"/>
+	<column name="creatime" column="u.creatime"/>
+	<column name="fintime" column="u.fintime"/>
+
+	<select name="byuserzone" condition="WHERE u.userid = ? AND u.zoneid = ?"/>
+	<select name="byuserzonesn" condition="WHERE u.userid = ? AND u.zoneid = ? AND u.sn = ?"/>
+	<select name="byuser" condition="WHERE u.userid = ?"/>
+</query>
+
+<procedure name="acquireuserpasswd" connection="auth0" operate="replaceA"> 
+ <parameter name="name1"     sql-type="varchar(64)"  java-type="java.lang.String"  in="true"  out="false" /> 
+ <parameter name="uid1"      sql-type="integer"      java-type="java.lang.Integer" in="false" out="true" /> 
+ <parameter name="passwd1"   sql-type="varchar(64)"  java-type="java.lang.String"  in="false" out="true" /> 
+</procedure>
+
+<procedure name="adduser" connection="auth0" operate="replaceA">
+	<parameter name="name"     sql-type="varchar(64)"  java-type="java.lang.String" in="true" out="false" />
+	<parameter name="passwd"   sql-type="binary(16)"   java-type="java.lang.reflect.Array" in="true" out="false" />
+	<parameter name="prompt"   sql-type="varchar(32)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="answer"   sql-type="varchar(32)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="truename" sql-type="varchar(32)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="idnumber" sql-type="varchar(32)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="email"    sql-type="varchar(64)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="mobilenumber" sql-type="varchar(32)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="province" sql-type="varchar(32)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="city"     sql-type="varchar(32)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="phonenumber"  sql-type="varchar(32)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="address"  sql-type="varchar(64)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="postalcode"   sql-type="varchar(8)"  java-type="java.lang.String" in="true" out="false" />
+	<parameter name="gender"   sql-type="integer"  java-type="java.lang.Integer" in="true" out="false" />
+	<parameter name="birthday" sql-type="varchar(32)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="qq"       sql-type="varchar(32)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="passwd2"  sql-type="binary(16)" java-type="java.lang.reflect.Array" in="true" out="false" />
+</procedure>
+
+<procedure name="updateUserInfo" connection="auth0" operate="replaceA">
+	<parameter name="name"     sql-type="varchar(32)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="prompt"   sql-type="varchar(32)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="answer"   sql-type="varchar(32)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="truename" sql-type="varchar(32)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="idnumber" sql-type="varchar(32)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="email"    sql-type="varchar(64)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="mobilenumber" sql-type="varchar(32)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="province" sql-type="varchar(32)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="city"     sql-type="varchar(32)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="phonenumber"  sql-type="varchar(32)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="address"  sql-type="varchar(64)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="postalcode"   sql-type="varchar(8)"  java-type="java.lang.String" in="true" out="false" />
+	<parameter name="gender"   sql-type="integer"    java-type="java.lang.Integer" in="true" out="false" />
+	<parameter name="birthday" sql-type="varchar(32)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="qq"       sql-type="varchar(32)" java-type="java.lang.String" in="true" out="false" />
+</procedure>
+
+<procedure name="changePasswd" connection="auth0" operate="replaceA">
+	<parameter name="name"   sql-type="varchar(64)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="passwd" sql-type="binary(16)" java-type="java.lang.reflect.Array" in="true" out="false" />
+</procedure>
+
+<procedure name="changePasswd2" connection="auth0" operate="replaceA">
+	<parameter name="name" sql-type="varchar(64)" java-type="java.lang.String" in="true" out="false" />
+	<parameter name="passwd2" sql-type="binary(16)" java-type="java.lang.reflect.Array" in="true" out="false" />
+</procedure>
+
+<procedure name="setiplimit" connection="auth0" operate="replaceA">
+	<parameter name="uid"      sql-type="integer"     java-type="java.lang.Integer" in="true" out="false"/>
+	<parameter name="ipaddr1"  sql-type="integer"     java-type="java.lang.Integer" in="true" out="false"/>
+	<parameter name="ipmask1"  sql-type="varchar(2)"  java-type="java.lang.String" in="true" out="false"/>
+	<parameter name="ipaddr2"  sql-type="integer"     java-type="java.lang.Integer" in="true" out="false"/>
+	<parameter name="ipmask2"  sql-type="varchar(2)"  java-type="java.lang.String" in="true" out="false"/>
+	<parameter name="ipaddr3"  sql-type="integer"     java-type="java.lang.Integer" in="true" out="false"/>
+	<parameter name="ipmask3"  sql-type="varchar(2)"  java-type="java.lang.String" in="true" out="false"/>
+</procedure>
+
+<procedure name="enableiplimit" connection="auth0" operate="replaceA">
+	<parameter name="uid"      sql-type="integer"     java-type="java.lang.Integer" in="true" out="false"/>
+	<parameter name="enable"   sql-type="char(1)"     java-type="java.lang.String" in="true" out="false"/>
+</procedure>
+
+<procedure name="lockuser" connection="auth0" operate="replaceA">
+	<parameter name="uid"      sql-type="integer"     java-type="java.lang.Integer" in="true" out="false"/>
+	<parameter name="lockstatus"   sql-type="char(1)"     java-type="java.lang.String" in="true" out="false"/>
+</procedure>
+
+<procedure name="addUserPriv" connection="auth0" operate="replaceA">
+	<parameter name="userid"   sql-type="integer"  java-type="java.lang.Integer"   in="true" out="false" />
+	<parameter name="zoneid"   sql-type="integer"  java-type="java.lang.Integer"   in="true" out="false" />
+	<parameter name="rid"      sql-type="integer"  java-type="java.lang.Integer"   in="true" out="false" />
+</procedure>
+
+<procedure name="delUserPriv" connection="auth0" operate="replaceA">
+	<parameter name="userid"   sql-type="integer"  java-type="java.lang.Integer"   in="true" out="false" />
+	<parameter name="zoneid"   sql-type="integer"  java-type="java.lang.Integer"   in="true" out="false" />
+	<parameter name="rid"      sql-type="integer"  java-type="java.lang.Integer"   in="true" out="false" />
+	<parameter name="deltype"  sql-type="integer"  java-type="java.lang.Integer"   in="true" out="false" />
+</procedure>
+
+<procedure name="addForbid" connection="auth0" operate="replaceA">
+	<parameter name="userid"   sql-type="integer"     java-type="java.lang.Integer" in="true" out="false"/>
+	<parameter name="type"     sql-type="integer"     java-type="java.lang.Integer" in="true" out="false"/>
+	<!--parameter name="ctime" sql-type="datetime"    java-type="java.util.Date" 	in="true" out="false"/-->
+	<parameter name="forbid_time" sql-type="integer"  java-type="java.lang.Integer" in="true" out="false"/>
+	<parameter name="reason"   sql-type="varbinary(255)" java-type="java.lang.reflect.Array"  in="true" out="false"/>
+	<parameter name="gmroleid" sql-type="integer"     java-type="java.lang.Integer" in="true" out="false"/>
+</procedure>
+
+<procedure name="deleteTimeoutForbid" connection="auth0" operate="replaceA">
+	<parameter name="userid"	sql-type="integer" java-type="java.lang.Integer" in="true" out="false"/>
+</procedure>
+
+<procedure name="clearonlinerecords" connection="auth0" operate="replaceA">
+	<parameter name="zoneid"   sql-type="integer"  java-type="java.lang.Integer"     in="true"  out="false" />
+	<parameter name="aid"      sql-type="integer"  java-type="java.lang.Integer"     in="true"  out="false" />
+</procedure>
+
+<procedure name="recordonline" connection="auth0" operate="replaceA">
+	<parameter name="uid"      sql-type="integer"  java-type="java.lang.Integer"     in="true"  out="false" />
+	<parameter name="aid"      sql-type="integer"  java-type="java.lang.Integer"     in="true"  out="false" />
+	<parameter name="zoneid"   sql-type="integer"  java-type="java.lang.Integer"     in="true"  out="true" />
+	<parameter name="zonelocalid" sql-type="integer"  java-type="java.lang.Integer"  in="true"  out="true" />
+	<parameter name="overwrite" sql-type="integer"  java-type="java.lang.Integer"    in="true"  out="true"  />
+</procedure>
+
+<procedure name="recordoffline" connection="auth0" operate="replaceA">
+	<parameter name="uid"      sql-type="integer"  java-type="java.lang.Integer"     in="true"  out="false" />
+	<parameter name="aid"      sql-type="integer"  java-type="java.lang.Integer"     in="true"  out="false" />
+	<parameter name="zoneid"   sql-type="integer"  java-type="java.lang.Integer"     in="true"  out="true" />
+	<parameter name="zonelocalid" sql-type="integer"  java-type="java.lang.Integer"  in="true"  out="true" />
+	<parameter name="overwrite" sql-type="integer"  java-type="java.lang.Integer"    in="true"  out="true" />
+</procedure>
+
+<procedure name="remaintime" connection="auth0" operate="replaceA">
+	<parameter name="uid"      sql-type="integer"  java-type="java.lang.Integer"    in="true"  out="false" />
+	<parameter name="aid"      sql-type="integer"  java-type="java.lang.Integer"    in="true"  out="false" />
+	<parameter name="remain"   sql-type="integer"  java-type="java.lang.Integer"    in="false" out="true" />
+	<parameter name="freetimeleft" sql-type="integer" java-type="java.lang.Integer" in="false" out="true" />
+</procedure>
+
+<procedure name="adduserpoint" connection="auth0" operate="replaceA">
+	<parameter name="uid"      sql-type="integer"  java-type="java.lang.Integer"    in="true"  out="false" />
+	<parameter name="aid"      sql-type="integer"  java-type="java.lang.Integer"    in="true"  out="false" />
+	<parameter name="time"     sql-type="integer"  java-type="java.lang.Integer"    in="true"  out="false" />
+</procedure>
+
+<procedure name="usecash" connection="auth0" operate="replaceA">
+	<parameter name="userid" sql-type="integer" java-type="java.lang.Integer" in="true" out="false"/>
+	<parameter name="zoneid" sql-type="integer" java-type="java.lang.Integer" in="true" out="false"/>
+	<parameter name="sn"     sql-type="integer" java-type="java.lang.Integer" in="true" out="false"/>
+	<parameter name="aid"    sql-type="integer" java-type="java.lang.Integer" in="true" out="false"/>
+	<parameter name="point"  sql-type="integer" java-type="java.lang.Integer" in="true" out="false"/>
+	<parameter name="cash"   sql-type="integer" java-type="java.lang.Integer" in="true" out="false"/>
+	<parameter name="status" sql-type="integer" java-type="java.lang.Integer" in="true" out="false"/>
+	<parameter name="error"  sql-type="integer" java-type="java.lang.Integer" in="false" out="true"/>
+</procedure>
+
+</application>
+

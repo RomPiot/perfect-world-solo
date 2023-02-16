@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/repos/au/!svn/ver/385/cauthd/lib
+END
+log4j-1.2.9.jar
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/repos/au/!svn/ver/61/cauthd/lib/log4j-1.2.9.jar
+END
+commons-collections-3.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/au/!svn/ver/61/cauthd/lib/commons-collections-3.1.jar
+END
+commons-logging-1.0.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/au/!svn/ver/61/cauthd/lib/commons-logging-1.0.4.jar
+END
+commons-dbcp-1.2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/au/!svn/ver/61/cauthd/lib/commons-dbcp-1.2.1.jar
+END
+commons-pool-1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/repos/au/!svn/ver/61/cauthd/lib/commons-pool-1.2.jar
+END
+jio.jar
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/repos/au/!svn/ver/464/cauthd/lib/jio.jar
+END
+application.jar
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/repos/au/!svn/ver/385/cauthd/lib/application.jar
+END

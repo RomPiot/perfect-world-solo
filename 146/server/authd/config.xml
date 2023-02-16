@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="rpcalls.xsl"?>
+
+<application namespace="GNET">
+
+	<protocol debug="1"  name="KickoutUser" maxsize="32" prior="2" type="10">
+		<variable name="userid" type="int"/>
+		<variable name="localsid" type="int"/>
+		<variable name="cause" type="byte" default="32"/>
+	</protocol>
+			
+	<rpcdata name="UserLoginArg">
+		<variable name="userid" type="int" default="-1"/>
+		<variable name="localsid" type="int" default="0"/>
+		<variable name="blkickuser" type="byte"	default="0"/>
+		<variable name="freecreatime" type="int" default="0"/>
+	</rpcdata>  
+	<rpcdata name="UserLoginRes">
+		<variable name="retcode" type="byte" default="-1"/>
+		<variable name="remain_playtime" type="int" default="0"/>
+		<variable name="func" type="int" default="0"/>
+		<variable name="funcparm" type="int" default="0"/>
+		<variable name="blIsGM" type="byte"/>
+		<variable name="free_time_left" type="int" default="0"/>
+		<variable name="free_time_end" type="int" default="0"/>
+		<variable name="creatime" type="int" default="0"/>
+		<variable name="adduppoint" type="int" default="0"/>
+		<variable name="soldpoint" type="int" default="0"/>
+	</rpcdata> 
+	<rpc debug="1" name="UserLogin" type="15" argument="UserLoginArg" result="UserLoginRes" maxsize="128" prior="2" timeout="10"/>
+
+	<rpcdata name="UserLogoutArg">
+		<variable name="userid" type="int" default="-1"/>
+		<variable name="localsid" type="int" default="0"/>
+	</rpcdata>  
+	<rpcdata name="UserLogoutRes">
+		<variable name="retcode" type="byte" default="-1"/>
+	</rpcdata>
+	<rpc debug="0" name="UserLogout" type="33" argument="UserLogoutArg" result="UserLogoutRes" maxsize="128" prior="2" timeout="10"/>
+
+	<rpcdata name="MatrixPasswdArg">
+		<variable name="account" type="Octets" default="Octets(0)"/>
+		<variable name="challenge" type="Octets" default="Octets(0)"/>
+		<variable name="loginip" type="int" default="0"/>
+	</rpcdata>
+	<rpcdata name="MatrixPasswdRes">
+		<variable name="retcode" type="int" default="-1"/>
+		<variable name="userid" type="int" default="-1"/>
+		<variable name="algorithm" type="int" default="0"/>
+		<variable name="response" type="Octets" default="Octets(0)"/>
+		<variable name="matrix" type="Octets" default="Octets(0)"/>
+	</rpcdata>
+	<rpc debug="0" name="MatrixPasswd" type="550" argument="MatrixPasswdArg" result="MatrixPasswdRes" maxsize="512" prior="101" timeout="30"/>
+
+	<protocol debug="0" name="MatrixFailure" maxsize="64" prior="101" type="553">
+		<variable name="userid" type="int" default="0"/>
+		<variable name="loginip" type="int" default="0"/>
+		<variable name="weight" type="int" default="0"/>
+	</protocol>
+
+	<rpcdata name="GPair">
+		<variable name="key" type="int" default="0"/>
+		<variable name="value" type="int" default="0"/>
+	</rpcdata>
+	<protocol debug="0" name="AddictionControl" maxsize="512" prior="0" type="556">
+		<variable name="zoneid" type="int" default="0"/>
+		<variable name="userid" type="int" default="0"/>
+		<variable name="rate" type="int" default="0"/>
+		<variable name="msg" type="int" default="0"/>
+		<variable name="data" type="GPairVector" attr="ref"/>
+	</protocol>
+
+	<protocol debug="1" name="AnnounceZoneid" maxsize="32" prior="2" type="505">
+		<variable name="zoneid" type="byte"/>
+		<variable name="aid" type="byte" />
+		<variable name="blreset" type="byte"/>
+	</protocol>
+	<protocol debug="1" name="AnnounceZoneid2" maxsize="32" prior="2" type="523">
+		<variable name="zoneid" type="int"/>
+		<variable name="aid" type="int" />
+		<variable name="blreset" type="byte"/>
+	</protocol>
+	<protocol debug="1" name="AnnounceZoneid3" maxsize="64" prior="2" type="527">
+		<variable name="zoneid" type="int"/>
+		<variable name="aid" type="int" />
+		<variable name="blreset" type="byte"/>
+		<variable name="ip1" type="int"/>
+		<variable name="ip2" type="int"/>
+		<variable name="ip3" type="int"/>
+		<variable name="reserved1" type="int"/>
+		<variable name="reserved2" type="int"/>
+	</protocol>
+	<protocol debug="0" name="QueryUserPrivilege" type="506" maxsize="32" prior="2">
+		<variable name="userid" type="int"/>
+		<variable name="zoneid" type="byte"/>
+	</protocol>
+	<protocol debug="0" name="QueryUserPrivilege2" type="524" maxsize="32" prior="2">
+		<variable name="userid" type="int"/>
+		<variable name="zoneid" type="int"/>
+	</protocol>
+	<protocol debug="0" name="QueryUserPrivilege_Re" type="507" maxsize="512" prior="2">
+		<variable name="userid" type="int"/>
+		<variable name="auth" type="MByteVector"/>
+	</protocol>
+
+	<rpcdata name="GRoleForbid" attr="vector">
+		<variable name="type" type="byte" default="0"/>
+		<variable name="time" type="int" default="0"/>
+		<variable name="createtime" type="int" default="0"/>
+		<variable name="reason" type="Octets" attr="ref" default="Octets(0)"/>
+	</rpcdata>
+	<protocol debug="0" name="QueryUserForbid" type="508" maxsize="32" prior="2">
+		<variable name="userid" type="int"/>
+		<variable name="zoneid" type="byte"/>
+	</protocol>
+	<protocol debug="0" name="QueryUserForbid2" type="525" maxsize="32" prior="2">
+		<variable name="userid" type="int"/>
+		<variable name="zoneid" type="int"/>
+	</protocol>
+	<protocol debug="0" name="QueryUserForbid_Re" type="509" maxsize="512" prior="2">
+		<variable name="userid" type="int"/>
+		<variable name="list_type" type="int" default="0"/><!-- 0:forbid list at login, 1:reply of forbid-->
+		<variable name="forbid" type="GRoleForbidVector"/>
+	</protocol>	
+	
+	<rpcdata name="GetAddCashSNArg">
+		<variable name="userid" type="int" default="-1"/>
+		<variable name="zoneid" type="int" default="-1"/>
+		<variable name="force" type="byte" default="0"/>
+	</rpcdata>
+	<rpcdata name="GetAddCashSNRes">
+		<variable name="retcode" type="int" default="-1"/>
+		<variable name="userid" type="int" default="-1"/>
+		<variable name="zoneid" type="int" default="-1"/>
+		<variable name="sn" type="int" default="0"/>
+	</rpcdata>
+	<rpc debug="0" name="GetAddCashSN" type="514" argument="GetAddCashSNArg" result="GetAddCashSNRes" maxsize="128" prior="0" timeout="60"/>
+	<protocol debug="0" name="AddCash" type="515" maxsize="256" prior="0">
+		<variable name="userid" type="int" default="-1"/>
+		<variable name="zoneid" type="int" default="-1"/>
+		<variable name="sn" type="int" default="0"/>
+		<variable name="cash" type="int" default="0"/>
+	</protocol>
+	<protocol debug="0" name="AddCash_Re" type="516" maxsize="256" prior="0">
+		<variable name="retcode" type="int" default="-1"/>
+		<variable name="userid" type="int" default="-1"/>
+		<variable name="zoneid" type="int" default="-1"/>
+		<variable name="sn" type="int" default="0"/>
+	</protocol>
+	<protocol debug="0" name="UseCash" type="517" maxsize="128" prior="0">
+		<variable name="userid" type="int" default="-1"/>
+		<variable name="zoneid" type="int" default="-1"/>
+		<variable name="aid" type="int" default="-1"/>
+		<variable name="point" type="int" default="-1"/>
+		<variable name="cash" type="int" default="-1"/>
+		<variable name="force" type="byte" default="0"/>
+	</protocol>
+	<protocol debug="0" name="UseCash_Re" type="518" maxsize="128" prior="0">
+		<variable name="retcode" type="int" default="-1"/>
+		<variable name="userid" type="int" default="-1"/>
+		<variable name="zoneid" type="int" default="-1"/>
+	</protocol>
+
+	<protocol debug="0" name="GMKickoutUser" maxsize="256" prior="2" type="354">
+		<variable name="gmroleid" type="int"/> <!-- roleid of game master -->	
+		<variable name="localsid" type="int"/>
+		<variable name="kickuserid" type="int"/>
+		<variable name="forbid_time" type="int" default="600"/>
+		<variable name="reason" type="Octets" attr="ref" default="Octets()"/>
+	</protocol>
+	<protocol debug="0" name="GMShutup" maxsize="256" prior="2" type="356">
+		<variable name="gmroleid" type="int"/>
+		<variable name="localsid" type="int"/>
+		<variable name="dstuserid" type="int"/>
+		<variable name="forbid_time" type="int"/>
+		<variable name="reason" type="Octets" attr="ref" default="Octets()"/>
+	</protocol>
+
+	<protocol name="CertRequest" type="545" maxsize="8192" prior="102">
+		<variable name="reserved1" type="int" default="0"/>
+	</protocol>
+	<protocol name="CertAnswer" type="546" maxsize="8192" prior="102">
+		<variable name="authd_cert" type="Octets"/>
+		<variable name="reserved1" type="int" default="0"/>
+	</protocol>
+	<protocol name="CertKey" type="547" maxsize="8192" prior="102">
+		<variable name="d_key1_encrypt" type="Octets"/>
+		<variable name="d_key2_encrypt" type="Octets"/>
+		<variable name="reserved1" type="int" default="0"/>
+	</protocol>
+	<protocol name="CertFinish" type="548" maxsize="8192" prior="102">
+		<variable name="reserved1" type="int" default="0"/>
+	</protocol>
+	<rpcdata name="CertChallengeArg">
+		<variable name="challenge" type="Octets"/>
+		<variable name="reserved" type="Octets"/>
+	</rpcdata>
+	<rpcdata name="CertChallengeRes">
+		<variable name="authd_cert" type="Octets"/>
+		<variable name="response" type="Octets"/>
+	</rpcdata>
+	<rpc debug="0" name="CertChallenge" type="549" argument="CertChallengeArg" result="CertChallengeRes" maxsize="8192" prior="102" timeout="40"/>
+
+	<state name="GAuthServer" timeout="86400">
+		<!-- from delivery -->
+		<proto name="AnnounceZoneid3"/>
+		<proto name="QueryUserPrivilege2"/>
+		<proto name="MatrixPasswd"/>
+		<proto name="MatrixFailure"/>
+		<proto name="UserLogin"/>
+		<proto name="UserLogout"/>
+		<proto name="GMKickoutUser"/>
+		<proto name="GMShutup"/>
+		<proto name="GetAddCashSN"/>
+		<proto name="AddCash_Re"/>
+		<proto name="GetAddBonusSN"/>
+
+		<proto name="AnnounceZoneid"/>
+		<proto name="AnnounceZoneid2"/>
+		<proto name="QueryUserPrivilege"/>
+
+		<proto name="CertRequest"/>
+		<proto name="CertKey"/>
+		<proto name="CertChallenge"/>
+
+		<!-- from GMServer -->
+		<proto name="UseCash"/>
+	</state>
+
+	<state name="AuTestClient" timeout="86400">
+		<proto name="CertAnswer" />
+		<proto name="CertFinish" />
+		<proto name="CertChallenge" />
+	</state>
+
+	<manager name="GAuthServer" initstate="GAuthServer" identification="GAuthServer"/>
+	<manager name="AuTestClient" initstate="AuTestClient" identification="AuTestClient"/>
+	
+	<security>
+		<entity class="com.goldhuman.Common.Security.NullSecurity" name="NullSecurity" type="0"/>
+		<entity class="com.goldhuman.Common.Security.Random" name="Random" type="1"/>
+		<entity class="com.goldhuman.Common.Security.ARCFourSecurity" name="ARCFourSecurity" type="2"/>
+		<entity class="com.goldhuman.Common.Security.MD5Hash" name="MD5Hash" type="3"/>
+		<entity class="com.goldhuman.Common.Security.HMAC_MD5Hash" name="HMAC_MD5Hash" type="4"/>
+	</security>
+</application>

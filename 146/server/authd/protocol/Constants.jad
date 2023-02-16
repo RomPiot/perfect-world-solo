@@ -1,0 +1,28 @@
+// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.kpdus.com/jad.html
+// Decompiler options: packimports(3) 
+
+package protocol;
+
+
+public final class Constants
+{
+
+    public Constants()
+    {
+    }
+
+    public static final int ERR_ACCOUNTEMPTY = 23;
+    public static final int ERR_KICKOUT = 32;
+    public static final int ERR_MULTILOGIN = 10;
+    public static final int ERR_SUCCESS = 0;
+    public static final int ERR_COMMUNICATION = 8;
+    public static final int ERR_INVALID_ACCOUNT = 2;
+    public static final int ERR_LOGOUT_FAIL = 12;
+    public static final int _SID_INVALID = 0;
+    public static final int PRV_FORCE_OFFLINE = 100;
+    public static final int PRV_FORBID_TALK = 101;
+    public static final int PRV_FORBID_TRADE = 102;
+    public static final int PRV_FORBID_SELL = 103;
+    public static final int PRV_FORBID_SELLPOINT = 104;
+}

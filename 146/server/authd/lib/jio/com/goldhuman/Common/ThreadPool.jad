@@ -1,0 +1,213 @@
+// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.kpdus.com/jad.html
+// Decompiler options: packimports(3) 
+
+package com.goldhuman.Common;
+
+import java.io.PrintStream;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+// Referenced classes of package com.goldhuman.Common:
+//            Runnable, Conf
+
+public class ThreadPool
+    implements Runnable
+{
+
+    private ThreadPool(Integer integer)
+    {
+        priority = integer;
+        synchronized(count)
+        {
+            Integer integer1 = (Integer)count.get(integer);
+            count.put(integer, new Integer(integer1 != null ? integer1.intValue() + 1 : 1));
+        }
+    }
+
+    public void run()
+    {
+_L2:
+        try
+        {
+label0:
+            {
+                Runnable runnable = null;
+                LinkedList linkedlist = (LinkedList)tasks.get(priority);
+                synchronized(linkedlist)
+                {
+                    for(; linkedlist.isEmpty(); linkedlist.wait());
+                    runnable = (Runnable)linkedlist.removeLast();
+                    synchronized(task_count_locker)
+                    {
+                        task_count--;
+                    }
+                }
+                runnable.run();
+                synchronized(remove)
+                {
+                    if(remove.isEmpty() || !priority.equals(remove.getLast()))
+                        break label0;
+                    remove.removeLast();
+                }
+                return;
+            }
+        }
+        catch(Exception exception) { }
+        continue; /* Loop/switch isn't completed */
+        linkedlist2;
+        JVM INSTR monitorexit ;
+        continue; /* Loop/switch isn't completed */
+        exception3;
+        throw exception3;
+        if(true) goto _L2; else goto _L1
+_L1:
+    }
+
+    public static void AddTask(Runnable runnable)
+    {
+        LinkedList linkedlist = (LinkedList)tasks.get(new Integer(runnable.GetPriority()));
+        if(linkedlist == null)
+        {
+            System.out.println((new StringBuilder()).append("ThreadPool thread LinkedList == null: no Match priority(").append(runnable.GetPriority()).append(")").toString());
+            return;
+        }
+        synchronized(linkedlist)
+        {
+            linkedlist.addFirst(runnable);
+            synchronized(task_count_locker)
+            {
+                task_count++;
+                task_total++;
+            }
+            time_lastadd = System.currentTimeMillis();
+            linkedlist.notify();
+        }
+    }
+
+    public static int TaskCount()
+    {
+        Object obj = task_count_locker;
+        JVM INSTR monitorenter ;
+        return task_count;
+        Exception exception;
+        exception;
+        throw exception;
+    }
+
+    public static Map TaskCounts()
+    {
+        TreeMap treemap = new TreeMap();
+        synchronized(count)
+        {
+            Integer integer;
+            for(Iterator iterator = count.keySet().iterator(); iterator.hasNext(); treemap.put(integer, Integer.valueOf(((LinkedList)tasks.get(integer)).size())))
+                integer = (Integer)iterator.next();
+
+        }
+        return treemap;
+    }
+
+    public static long TaskTotal()
+    {
+        Object obj = task_count_locker;
+        JVM INSTR monitorenter ;
+        return task_total;
+        Exception exception;
+        exception;
+        throw exception;
+    }
+
+    public static long TimeLastAdd()
+    {
+        return time_lastadd;
+    }
+
+    public static void AddThread(int i)
+    {
+        (new Thread(new ThreadPool(new Integer(i)))).start();
+        if(tasks.get(Integer.valueOf(i)) == null)
+            tasks.put(Integer.valueOf(i), new LinkedList());
+    }
+
+    public static int ThreadCount()
+    {
+        int i = 0;
+        synchronized(count)
+        {
+            for(Iterator iterator = count.entrySet().iterator(); iterator.hasNext();)
+                i += ((Integer)(Integer)((java.util.Map.Entry)iterator.next()).getValue()).intValue();
+
+        }
+        return i;
+    }
+
+    public static int ThreadCount(int i)
+    {
+        int j = 0;
+        synchronized(count)
+        {
+            Integer integer = (Integer)count.get(new Integer(i));
+            if(integer != null)
+                j = integer.intValue();
+        }
+        return j;
+    }
+
+    public static void RemoveThread(int i)
+    {
+        Integer integer = new Integer(i);
+        synchronized(count)
+        {
+            Integer integer1 = (Integer)count.get(integer);
+            if(integer1 != null)
+            {
+                int j = integer1.intValue() - 1;
+                if(j > 0)
+                {
+                    count.put(integer, new Integer(j));
+                    synchronized(remove)
+                    {
+                        remove.addFirst(integer);
+                    }
+                } else
+                {
+                    count.remove(integer);
+                }
+            }
+        }
+    }
+
+    private static SortedMap tasks = Collections.synchronizedSortedMap(new TreeMap());
+    private static SortedMap count = new TreeMap();
+    private static int task_count = 0;
+    private static Object task_count_locker = new Object();
+    private static long time_lastadd = 0L;
+    private static long task_total = 0L;
+    private static LinkedList remove = new LinkedList();
+    public Integer priority;
+
+    static 
+    {
+        try
+        {
+            String s = Conf.GetInstance().find("ThreadPool", "config");
+            if(s != null)
+            {
+                for(Matcher matcher = Pattern.compile("\\(\\s*(\\d+)\\s*,\\s*(\\d+)\\s*\\)").matcher(s); matcher.find();)
+                {
+                    int i = Integer.parseInt(matcher.group(1));
+                    int j = Integer.parseInt(matcher.group(2));
+                    while(j > 0) 
+                    {
+                        AddThread(i);
+                        j--;
+                    }
+                }
+
+            }
+        }
+        catch(Exception exception) { }
+    }
+}

@@ -1,0 +1,59 @@
+// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.kpdus.com/jad.html
+// Decompiler options: packimports(3) 
+
+package protocol;
+
+import com.goldhuman.Common.CertVerify;
+import com.goldhuman.Common.Marshal.MarshalException;
+import com.goldhuman.Common.Marshal.OctetsStream;
+import com.goldhuman.Common.Octets;
+import com.goldhuman.IO.Protocol.*;
+import java.io.PrintStream;
+
+public final class CertAnswer extends Protocol
+{
+
+    public CertAnswer()
+    {
+        authd_cert = new Octets();
+    }
+
+    public OctetsStream marshal(OctetsStream octetsstream)
+    {
+        octetsstream.marshal(authd_cert);
+        octetsstream.marshal(reserved1);
+        return octetsstream;
+    }
+
+    public OctetsStream unmarshal(OctetsStream octetsstream)
+        throws MarshalException
+    {
+        octetsstream.unmarshal(authd_cert);
+        reserved1 = octetsstream.unmarshal_int();
+        return octetsstream;
+    }
+
+    public Object clone()
+    {
+        try
+        {
+            CertAnswer certanswer = (CertAnswer)super.clone();
+            certanswer.authd_cert = (Octets)authd_cert.clone();
+            return certanswer;
+        }
+        catch(Exception exception)
+        {
+            return null;
+        }
+    }
+
+    public void Process(Manager manager, Session session)
+        throws ProtocolException
+    {
+        System.out.println((new StringBuilder()).append("CertAnswer:authd_cert=").append(new String(CertVerify.encodeHex(authd_cert.getBytes()))).toString());
+    }
+
+    public Octets authd_cert;
+    public int reserved1;
+}

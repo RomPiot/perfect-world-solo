@@ -1,0 +1,364 @@
+// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.kpdus.com/jad.html
+// Decompiler options: packimports(3) 
+
+package com.goldhuman.Common;
+
+import java.io.*;
+import java.security.*;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateException;
+import java.util.Enumeration;
+import javax.crypto.*;
+import sun.security.pkcs11.SunPKCS11;
+
+public class CertVerify
+{
+
+    public CertVerify()
+    {
+        initialized = false;
+    }
+
+    public static CertVerify getInstance()
+    {
+        return instance;
+    }
+
+    private static int toDigit(char c, int i)
+    {
+        int j = Character.digit(c, 16);
+        if(j == -1)
+            return 0;
+        else
+            return j;
+    }
+
+    public static byte[] decodeHex(char ac[])
+    {
+        int i = ac.length;
+        if((i & 1) != 0)
+            return null;
+        byte abyte0[] = new byte[i >> 1];
+        int j = 0;
+        for(int k = 0; k < i;)
+        {
+            int l = toDigit(ac[k], k) << 4;
+            k++;
+            l |= toDigit(ac[k], k);
+            k++;
+            abyte0[j] = (byte)(l & 0xff);
+            j++;
+        }
+
+        return abyte0;
+    }
+
+    public static char[] encodeHex(byte abyte0[])
+    {
+        int i = abyte0.length;
+        char ac[] = new char[i << 1];
+        int j = 0;
+        int k = 0;
+        for(; j < i; j++)
+        {
+            ac[k++] = DIGITS[(0xf0 & abyte0[j]) >>> 4];
+            ac[k++] = DIGITS[0xf & abyte0[j]];
+        }
+
+        return ac;
+    }
+
+    public int initJKS(String s, String s1)
+    {
+        if(initialized)
+            return 0;
+        Enumeration enumeration;
+        keystore = KeyStore.getInstance("jks");
+        keystore.load(new FileInputStream(s), s1.toCharArray());
+        enumeration = keystore.aliases();
+        if(enumeration.hasMoreElements())
+        {
+            String s2 = (String)enumeration.nextElement();
+            key = keystore.getKey(s2, s1.toCharArray());
+            if(key instanceof PrivateKey)
+            {
+                cert = keystore.getCertificate(s2);
+                PublicKey publickey = cert.getPublicKey();
+                keypair = new KeyPair(publickey, (PrivateKey)key);
+                return 0;
+            }
+            break MISSING_BLOCK_LABEL_141;
+        }
+        return -1;
+        try
+        {
+            initialized = true;
+            return 1;
+        }
+        catch(KeyStoreException keystoreexception)
+        {
+            keystoreexception.printStackTrace();
+        }
+        catch(NoSuchAlgorithmException nosuchalgorithmexception)
+        {
+            nosuchalgorithmexception.printStackTrace();
+        }
+        catch(CertificateException certificateexception)
+        {
+            certificateexception.printStackTrace();
+        }
+        catch(IOException ioexception)
+        {
+            System.out.println("ERROR:incorrect passphrase for this key!");
+            return -2;
+        }
+        catch(UnrecoverableKeyException unrecoverablekeyexception)
+        {
+            unrecoverablekeyexception.printStackTrace();
+        }
+        return -1;
+    }
+
+    public int initPKCS11(String s, String s1)
+    {
+        if(initialized)
+            return 0;
+        Enumeration enumeration;
+        Security.addProvider(provider = new SunPKCS11(s));
+        keystore = KeyStore.getInstance("PKCS11", provider);
+        keystore.load(null, s1.toCharArray());
+        enumeration = keystore.aliases();
+        if(enumeration.hasMoreElements())
+        {
+            String s2 = (String)enumeration.nextElement();
+            key = keystore.getKey(s2, null);
+            if(key instanceof PrivateKey)
+            {
+                cert = keystore.getCertificate(s2);
+                PublicKey publickey = cert.getPublicKey();
+                keypair = new KeyPair(publickey, (PrivateKey)key);
+                return 0;
+            }
+            break MISSING_BLOCK_LABEL_155;
+        }
+        return -1;
+        try
+        {
+            initialized = true;
+            return 1;
+        }
+        catch(KeyStoreException keystoreexception)
+        {
+            keystoreexception.printStackTrace();
+        }
+        catch(NoSuchAlgorithmException nosuchalgorithmexception)
+        {
+            nosuchalgorithmexception.printStackTrace();
+        }
+        catch(CertificateException certificateexception)
+        {
+            certificateexception.printStackTrace();
+        }
+        catch(IOException ioexception)
+        {
+            System.out.println("ERROR:incorrect passphrase for this key!");
+            return -2;
+        }
+        catch(UnrecoverableKeyException unrecoverablekeyexception)
+        {
+            unrecoverablekeyexception.printStackTrace();
+        }
+        return -1;
+    }
+
+    public byte[] getDER()
+    {
+        try
+        {
+            return cert.getEncoded();
+        }
+        catch(Exception exception)
+        {
+            exception.printStackTrace(System.out);
+        }
+        return new byte[0];
+    }
+
+    public void dump()
+    {
+        try
+        {
+            System.out.print("Certificate Type:");
+            System.out.println(cert.getType());
+            System.out.print("Certificate Encode:");
+            System.out.println(new String(encodeHex(cert.getEncoded())));
+            System.out.print("PublicKey Type:");
+            System.out.println(cert.getPublicKey().getFormat());
+            System.out.print("PublicKey Encode:");
+            System.out.println(new String(encodeHex(cert.getPublicKey().getEncoded())));
+        }
+        catch(Exception exception)
+        {
+            System.out.println("ERROR:CertVerify dump exception!");
+            exception.printStackTrace(System.out);
+        }
+    }
+
+    public void test(byte abyte0[])
+    {
+        try
+        {
+            byte abyte1[] = getInstance().EncryptWithPublic(abyte0);
+            System.out.print("encrypt with public:");
+            System.out.println(new String(encodeHex(abyte1)));
+            System.out.print("decrypt with private:");
+            System.out.println(new String(encodeHex(getInstance().DecryptWithPrivate(abyte1))));
+            abyte1 = getInstance().EncryptWithPrivate(abyte0);
+            System.out.print("encrypt with private:");
+            System.out.println(new String(encodeHex(abyte1)));
+            System.out.print("decrypt with public:");
+            System.out.println(new String(encodeHex(getInstance().DecryptWithPublic(abyte1))));
+        }
+        catch(Exception exception)
+        {
+            System.out.println("ERROR:CertVerify test exception!");
+            exception.printStackTrace(System.out);
+        }
+    }
+
+    private byte[] Encrypt(byte abyte0[], Key key1)
+    {
+        if(abyte0 == null)
+            return null;
+        byte abyte1[] = null;
+        Object obj = null;
+        try
+        {
+            Cipher cipher;
+            if(null != provider)
+                cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding", provider);
+            else
+                cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(1, key1);
+            abyte1 = cipher.doFinal(abyte0);
+        }
+        catch(NoSuchAlgorithmException nosuchalgorithmexception)
+        {
+            nosuchalgorithmexception.printStackTrace();
+        }
+        catch(NoSuchPaddingException nosuchpaddingexception)
+        {
+            nosuchpaddingexception.printStackTrace();
+        }
+        catch(InvalidKeyException invalidkeyexception)
+        {
+            invalidkeyexception.printStackTrace();
+        }
+        catch(IllegalBlockSizeException illegalblocksizeexception)
+        {
+            illegalblocksizeexception.printStackTrace();
+        }
+        catch(BadPaddingException badpaddingexception)
+        {
+            badpaddingexception.printStackTrace();
+        }
+        return abyte1;
+    }
+
+    private byte[] Decrypt(byte abyte0[], Key key1)
+    {
+        if(abyte0 == null)
+            return null;
+        byte abyte1[] = null;
+        Object obj = null;
+        try
+        {
+            Cipher cipher;
+            if(null != provider)
+                cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding", provider);
+            else
+                cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(2, key1);
+            abyte1 = cipher.doFinal(abyte0);
+        }
+        catch(NoSuchAlgorithmException nosuchalgorithmexception)
+        {
+            nosuchalgorithmexception.printStackTrace();
+        }
+        catch(NoSuchPaddingException nosuchpaddingexception)
+        {
+            nosuchpaddingexception.printStackTrace();
+        }
+        catch(InvalidKeyException invalidkeyexception)
+        {
+            invalidkeyexception.printStackTrace();
+        }
+        catch(IllegalBlockSizeException illegalblocksizeexception)
+        {
+            illegalblocksizeexception.printStackTrace();
+        }
+        catch(BadPaddingException badpaddingexception)
+        {
+            badpaddingexception.printStackTrace();
+        }
+        return abyte1;
+    }
+
+    public byte[] EncryptWithPublic(byte abyte0[])
+    {
+        return Encrypt(abyte0, keypair.getPublic());
+    }
+
+    public byte[] DecryptWithPublic(byte abyte0[])
+    {
+        return Decrypt(abyte0, keypair.getPublic());
+    }
+
+    public byte[] EncryptWithPrivate(byte abyte0[])
+    {
+        return Encrypt(abyte0, keypair.getPrivate());
+    }
+
+    public byte[] DecryptWithPrivate(byte abyte0[])
+    {
+        return Decrypt(abyte0, keypair.getPrivate());
+    }
+
+    public static void main(String args[])
+        throws Exception
+    {
+        if(3 != args.length)
+        {
+            System.out.println("usage:     java util.CertVerify JKS jks_file pin");
+            System.out.println("       or: java util.CertVerify PKCS11 pkcs11_cfg_file pin");
+            return;
+        }
+        if("JKS".equals(args[0]))
+            getInstance().initJKS(args[1], args[2]);
+        else
+        if("PKCS11".equals(args[1]))
+        {
+            getInstance().initPKCS11(args[1], args[2]);
+        } else
+        {
+            System.out.println("usage:     java util.CertVerify JKS jks_file pin");
+            System.out.println("       or: java util.CertVerify PKCS11 pkcs11_cfg_file pin");
+            return;
+        }
+        getInstance().dump();
+    }
+
+    private Provider provider;
+    private KeyStore keystore;
+    private Certificate cert;
+    private Key key;
+    private KeyPair keypair;
+    private boolean initialized;
+    private static CertVerify instance = new CertVerify();
+    private static final char DIGITS[] = {
+        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 
+        'a', 'b', 'c', 'd', 'e', 'f'
+    };
+
+}
