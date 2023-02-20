@@ -1,0 +1,19 @@
+Hello,
+
+You have received a new private message from %%NAME%% with the following subject:
+
+%%SUBJECT%%
+
+You can view your new message by clicking on the following link:
+%%TRACK_URL%%
+
+You can always choose not to be notified of new messages by changing the appropriate setting in your profile.
+
+
+*DO NOT REPLY TO THIS E-MAIL*
+This is an automated e-mail message sent from our support system. Do not reply to this e-mail as we won't receive your reply, use the link above for proper communication!
+
+Yours sincerely,
+
+%%SITE_TITLE%%
+%%SITE_URL%%

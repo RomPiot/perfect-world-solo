@@ -1,0 +1,18 @@
+Dear %%NAME%%,
+
+Your support ticket "%%SUBJECT%%" has been submitted. We try to reply to all tickets as soon as possible, usually within 24 hours.
+
+Your tracking ID: %%TRACK_ID%%
+
+You can view the status of your ticket here:
+%%TRACK_URL%%
+
+You will receive an e-mail notification when our staff replies to your ticket.
+
+*DO NOT REPLY TO THIS E-MAIL*
+This is an automated e-mail message sent from our support system. Do not reply to this e-mail as we won't receive your reply!
+
+Yours sincerely,
+
+%%SITE_TITLE%%
+%%SITE_URL%%

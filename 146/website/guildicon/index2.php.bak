@@ -1,0 +1,7 @@
+<?php
+include "../config.php";
+$http = "http://";
+$guildicon = ":8080/Account/Services/GuildIcon";
+$guildiconredirect = $http.$ServerIP.$guildicon;
+header('Location:'.$guildiconredirect);
+?>

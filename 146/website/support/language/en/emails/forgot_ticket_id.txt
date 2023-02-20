@@ -1,0 +1,14 @@
+Dear %%NAME%%,
+
+This e-mail contains a list of support tickets submitted with your e-mail address. Number of support tickets found: %%NUM%%
+
+%%LIST_TICKETS%%
+
+
+*DO NOT REPLY TO THIS E-MAIL*
+This is an automated e-mail message sent from our support system. Do not reply to this e-mail as we won't receive your reply!
+
+Yours sincerely,
+
+%%SITE_TITLE%%
+%%SITE_URL%%

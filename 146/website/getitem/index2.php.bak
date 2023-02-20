@@ -1,0 +1,7 @@
+<?php
+include "../config.php";
+$http = "http://";
+$getitem = ":8080/Account/Services/GetItem";
+$getitemredirect = $http.$ServerIP.$getitem;
+header('Location:'.$getitemredirect);
+?>

@@ -1,0 +1,18 @@
+Hello,
+
+A new support ticket has been assigned to you. Ticket details:
+
+Ticket subject: %%SUBJECT%%
+Tracking ID: %%TRACK_ID%%
+
+You can manage this ticket here:
+%%TRACK_URL%%
+
+
+*DO NOT REPLY TO THIS E-MAIL*
+This is an automated e-mail message sent from our support system. Do not reply to this e-mail as we won't receive your reply, use the link above for proper communication!
+
+Yours sincerely,
+
+%%SITE_TITLE%%
+%%SITE_URL%%

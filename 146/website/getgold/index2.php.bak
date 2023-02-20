@@ -1,0 +1,7 @@
+<?php
+include "../config.php";
+$http = "http://";
+$getgold = ":8080/Account/Services/GetGold";
+$getgoldredirect = $http.$ServerIP.$getgold;
+header('Location:'.$getgoldredirect);
+?>

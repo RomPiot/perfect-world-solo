@@ -1,0 +1,20 @@
+Hello,
+
+A new support ticket has been submitted. Ticket details:
+
+Ticket subject: %%SUBJECT%%
+Tracking ID: %%TRACK_ID%%
+
+You can manage this ticket here:
+%%TRACK_URL%%
+
+
+*DO NOT REPLY TO THIS E-MAIL*
+This is an automated e-mail message sent from the support system. Do not reply to this e-mail as the customer won't receive your reply!
+
+To change your e-mail notification preferences login to help desk administration and go to "Profile".
+
+Regards,
+
+%%SITE_TITLE%%
+%%SITE_URL%%

@@ -1,0 +1,152 @@
+/*
+=================================================================================================
+    This file is part of "Universal Mysql Top 100 Table".
+
+    "Universal Mysql Top 100 Table" is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    "Universal Mysql Top 100 Table" is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+    See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+=================================================================================================
+Made by LegalSin aka NIMDA from Dragon-Network if you like this or you find it usful give a like on ragezone.
+*/
+body
+{
+padding:0;
+position:relative;
+left:0px;
+margin-top:0px;
+margin-bottom:0px;
+margin-right:0px;
+margin-left:1px;;
+}
+
+.menu {
+	margin:0px;padding:0px;
+	width:100%;
+	border:1px solid #395155;
+	border-width:0px 1px 1px 1px;
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+	background-color: #050817;
+}
+
+.TopPlayersDiv {
+	margin:0px;padding:0px;
+	width:100%;
+	border:1px solid #395155;
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}.TopPlayersDiv table{
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}.TopPlayersDiv tr:last-child td:last-child {
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+}
+
+.TopPlayersDiv table tr:first-child td:first-child {
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}
+
+.TopPlayersDiv table tr:first-child td:last-child {
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+}.TopPlayersDiv tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+}.TopPlayersDiv tr:hover td{
+	background:-o-linear-gradient(bottom, #0069d3 5%, #007fff 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #0069d3), color-stop(1, #007fff) );
+	background:-moz-linear-gradient( center top, #0069d3 5%, #007fff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#0069d3", endColorstr="#007fff");	background: -o-linear-gradient(top,#0069d3,007fff);
+	background-color:#0069d3;
+	
+
+}
+.TopPlayersDiv tr:nth-child(odd){ background-color:#050817; }
+.TopPlayersDiv tr:nth-child(even)    { background-color:#050817; }
+.TopPlayersDiv td{
+	vertical-align:middle;
+	border:1px solid #395155;
+	border-width:0px 0px 1px 0px;
+	text-align:center;
+	padding:0px;
+	font-size:10px;
+	font-family:Georgia;
+	font-weight:normal;
+	color:#f4eded;
+}.TopPlayersDiv tr:last-child td{
+	border-width:0px 0px 1px 0px;
+}.TopPlayersDiv tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}.TopPlayersDiv tr:last-child td:last-child{
+	border-width:0px 0px 1px 0px;
+}
+
+.TopPlayersDiv tr:first-child td{
+	background:-o-linear-gradient(bottom, #111828 5%, #111828 100%);	
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #111828), color-stop(1, #111828) );
+	background:-moz-linear-gradient( center top, #111828 5%, #111828 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#111828", endColorstr="#111828");	
+	background: -o-linear-gradient(top,#111828,111828);
+	background-color:#111828;
+	border:0px solid #395155;
+	text-align:center;
+	border-width:1px 0px 1px 1px;
+	font-size:12px;
+	font-family:Georgia;
+	font-weight:bold;
+	color:#d6b333;
+	background:url(img/asc.gif) no-repeat 99% 2px #111828;
+}
+
+.TopPlayersDiv tr:first-child:hover td{
+	background:-o-linear-gradient(bottom, #111828 5%, #111828 100%);	
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #111828), color-stop(1, #111828) );
+	background:-moz-linear-gradient( center top, #111828 5%, #111828 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#111828", endColorstr="#111828");	
+	background: -o-linear-gradient(top,#111828,111828);
+	background-color:#111828;
+	background:url(img/asc.gif) no-repeat 99% 2px #111828;
+}
+
+.TopPlayersDiv tr:first-child td:first-child{
+	border-width:1px 0px 1px 0px;
+}
+
+.TopPlayersDiv tr:first-child td:last-child{
+	border-width:1px 0px 1px 1px;
+}

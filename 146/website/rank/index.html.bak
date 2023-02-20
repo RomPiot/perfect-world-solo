@@ -1,0 +1,7 @@
+<frameset rows="186,*">
+  <frame src="index.php" frameborder="0">
+  <frame src="rank.php" frameborder="0">
+ <frameset cols="100%">
+ </frameset>
+</frameset>
+

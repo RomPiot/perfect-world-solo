@@ -1,0 +1,661 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML; 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<title>HESK - README</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* Style sheet and XHTML code
+Author: Mauricio Samy Silva http://www.maujor.com/ A Web Standard evangelist site
+City: Rio de Janeiro - Brazil
+Contact: maujorcss[at]maujor[dot]com
+Date: 2006-05-11
+*/
+body {
+        margin:5px 0;
+        padding:0;
+        background:#eee;
+        color: black;
+        font : 68.8%/1.5 Verdana, Geneva, Arial, Helvetica, sans-serif;
+        text-align:center;
+        }
+#wrapper {
+        width:700px;
+        background:#fff;
+        margin:0 auto;
+        text-align:left;
+        border:1px solid #ccc;
+        padding:10px 20px;
+        }
+h1 {
+        font-size:1.5em;
+        }
+h2 {
+        font-size:1.2em;
+        border-top:1px solid #999;
+        padding-top:1.8em;
+        }
+h3 {
+        font-size:1.0em;
+        }
+span.dest { color:#f00;}
+span.tip { color:#008000; font-weight:bold;}
+p {
+        color : black;
+        font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+        font-size: 1.0em;
+        }
+address {
+        font-weight:bold;
+        font-style:normal;
+        }
+ul.nobullets {
+        margin:0 0 1.0em;
+        padding:0;
+        list-style:none;
+        }
+ol li {margin-bottom:1.0em;}
+samp, code {
+        font-size:1.3em;
+        font-weight:bold;
+        }
+a:hover {
+        color : red;
+        background:#ccc;
+        text-decoration : none;
+        }
+table#installation {
+        border-collapse:collapse;
+        margin: 5px 15px 10px -25px;
+        border: 2px solid #999;
+        }
+table#installation thead {
+        text-align:center;
+        text-transform:uppercase;
+        }
+table#installation tr td, table#installation tr th {
+        padding: 2px 5px;
+        border: 1px solid #ccc;
+        }
+table#installation tr th {
+        border-bottom-width:2px;
+        border-bottom-color:#999;
+        }
+
+table#installation tr td var {
+        font-weight:bold;
+        font-style:normal;
+        }
+table#installation tr.odd {
+        background: #fafafa;
+        }
+
+
+</style>
+</head>
+<body>
+<div id="wrapper">
+<div id="main">
+<h1><span class="dest">HESK&trade;</span> PHP Help Desk Software</h1>
+
+<ul class="nobullets">
+<li>Version: 2.2 from 9th June 2010</li>
+<li>Author: Klemen Stirn</li>
+<li><a href="http://www.hesk.com" target="_blank">Help Desk Software HESK</a></li>
+<li><a href="http://www.phpjunkyard.com" target="_blank">PHP Scripts from PHPJunkyard.com</a></li>
+<li><a href="http://developers.phpjunkyard.com/" target="_blank">Support and developers forum</a></li>
+</ul>
+
+<h2>INDEX</h2>
+
+<ul class="nobullets">
+    <li><a href="#copy">Copyright and trademark notice</a></li>
+    <li><a href="#desc">Description, requirements and  and thanks</a></li>
+    <li><a href="#install"><b>Installation</b></a></li>
+    <li><a href="#upgrade">Upgrading from old versions</a></li>
+    <li><a href="#help">HELP and Troubleshooting</a></li>
+    <li><b>Customizing HESK</b>
+    <ul>
+        <li><a href="#customize">Customize the look</a></li>
+        <li><a href="#emails">Customize e-mails</a></li>
+        <li><a href="#translate">Translate HESK to your language</a></li>
+    </ul>
+    </li>
+    <li><a href="#other">More free scripts, newsletter, ratings...</a></li>
+    <li><a href="#changelog">Changelog</a></li>
+</ul>
+
+<h2 id="copy">COPYRIGHT AND TRADEMARK NOTICE</h2>
+
+<p>Copyright 2005-2010 Klemen Stirn. All Rights Reserved. HESK&trade; is a registered trademark of Klemen Stirn.</p>
+
+<p>The HESK may be used and modified free of charge by anyone AS LONG AS COPYRIGHT NOTICES AND ALL THE COMMENTS REMAIN INTACT. By using this code you agree to indemnify Klemen Stirn from any liability that might arise from it's use.</p>
+
+<p><b>Selling the code for this program, in part or full, without prior written consent is expressly forbidden.</b></p>
+
+<p>Using this code, in part or full, to create derivate work, new scripts or products is expressly forbidden. <b>Obtain permission before redistributing this software over the Internet or in any other medium.</b> In all cases copyright and header must remain intact. This copyright is in full effect in any country that has International Trade Agreements with the United States of America or with the European Union.</p>
+
+<p><b>Removing copyright notice (&quot;Powered by&quot; links)</b><br />
+Removing any of the copyright notices without purchasing a license is expressly forbidden. To remove HESK copyright notice you must purchase a license. For more information on how to obtain a license please visit the page below:<br />
+<a href="https://www.hesk.com/buy.php" target="_blank">https://www.hesk.com/buy.php</a></p>
+
+<h2 id="desc">DESCRIPTION</h2>
+
+<p>A free PHP/MySQL Web based Help Desk Software.</p>
+
+<p><b>What's new in 2.2</b><br />
+- assign owners to tickets (assign tickets to individual staff members)<br />
+- admin panel shows last repliers' name<br />
+- more information can be entered into e-mails (category, message, ticket owner, custom fields)<br />
+- staff can now submit tickets<br />
+- added reporting features<br />
+- added staff private messages<br />
+- check for duplicate tracking ID<br />
+- improved ticket searching<br />
+- fixed bug where edit_post rewrites session variables when register_globals is enabled<br />
+- fixed bug where e-mails and URLs don't show correctly when editing ticket<br />
+- fixed bug where last replier didn't show correctly after deleting a post<br />
+- lock/unlock individual tickets<br />
+- new way of suggesting KB articles<br />
+- ticket history log (who closed, opened, locked or unlocked a ticket)<br />
+- more user-friendly error and success message handling<br />
+- added checks to fight CSRF-type attacks<br />
+- generate URLs that will pre-load category selection when submitting new tickets<br />
+- settings will now accept localhost URLs<br />
+- purge attachments when the ticket is deleted<br />
+- disable customer setting ticket priority level<br />
+- a number of minor changes and fixes.</p>
+
+<h2>REQUIREMENTS</h2>
+
+<ul>
+    <li>A server with working PHP 4.3.2 or newer and MySQL 4.0 or newer</li>
+</ul>
+
+<h2>THANKS TO</h2>
+
+<p>I would like to say THANKS to everyone who in any way contributed to the development of this script, especially to (in no particular order):</p>
+
+<ul>
+    <li>Mauricio Samy Silva, designed the nice readme file you are just reading (<a href="http://www.maujor.com/">www</a>)</li>
+    <li>Everyone who supports my work by <a href="https://www.hesk.com/buy.php">purchasing a license</a></li>
+    <li>Everyone who posts their suggestions, comments and feedback on the <a href="http://developers.phpjunkyard.com">PHPJunkyard forum</a></li>
+</ul>
+
+<h2 id="install">&raquo; Installation</h2>
+
+<p style="font-weight:bold"><span class="dest">Please take 5 minutes and read the installation instructions carefully and completely! This will ensure a proper and easy installation.</span></p>
+
+<p style="font-weight:bold"><span class="dest">If you have problems/questions see the &quot;HELP and TroubleshootingP&quot; section further down.</span></p>
+
+<p>Before installing HESK you will need to obtain your MySQL database information, such as <b>database name</b>, <b>database user</b> and <b>password</b>.
+You need to get this information from your HOSTING COMPANY, HESK CANNOT help you find it.</p>
+
+<ol>
+<li>
+<p>Connect via FTP to the public folder of your server where the rest of your Web site is,
+usually called &quot;public_html,&quot; &quot;www&quot; or &quot;site,&quot; and create a folder where you will install HESK (for example named &quot;hesk&quot; or &quot;support&quot;).<br />
+Example: /public_html/hesk<br />
+Corresponding URL: http://www.yourdomain.com/hesk</p>
+<p><span class="tip">TIP:</span> Learn how to FTP and CHMOD files, read my simple <a href="http://www.phpjunkyard.com/ftp-chmod-tutorial.php" target="_blank">FTP and CHMOD tutorial</a></p>
+</li>
+<li>
+<p>Upload folder &quot;img&quot; and images inside to your server in BINARY mode and all other HESK files and folders to your server in ASCII mode.</p>
+</li>
+<li>
+<p>Make sure the following files/folders are writable by the script:<br />
+- file <b>hesk_settings.inc.php</b> - on Unix (Linux) servers CHMOD this file to <b>666</b> (rw-rw-rw-)<br />
+- directory <b>attachments</b> - on Unix (Linux) servers CHMOD this directory to <b>777</b> (rwxrwxrwx)</p>
+</li>
+<li>
+<p>Open <b>hesk/install</b> in your browser, for example:<br />
+http://www.yourdomain.com/hesk/install<br />
+(modify the URL to show the HESK install folder on your server)</p>
+</li>
+<li>
+<p>The HESK setup script will display on the install URL. Click <b>New install</b> and follow instructions through 4 steps:</p>
+   <ol>
+   <li><b>STEP 1: License agreement</b> - read the HESK License agreement and confirm that you agree with the terms.</li>
+   <li><b>STEP 2: Check setup</b> - the script will test your server to see if all required settings are correct and advise solutions to any problems.</li>
+   <li><b>STEP 3: Database settings</b> - enter your MySQL database settings and the setup script will test them.<br />
+       <span class="dest">You need to get correct MySQL database information from your hosting company!</span></li>
+   <li><b>STEP 4: Setup database tables</b> - everything OK so the script will install MySQL tables.</li>
+   </ol>
+</li>
+<li>
+<p style="font-weight:bold">Before closing the upgrade script <span class="dest">DELETE the &quot;install&quot; directory from your server!</span></p>
+</li>
+<li>
+<p>Well done, now it's time to setup your help desk! Click the Continue link in the install script or open the <b>admin</b> folder in your browser, for example:<br />
+http://www.yourdomain.com/hesk/admin/<br />
+Login using<br />
+-&gt; Default username: <b><i>Administrator</i></b><br />
+-&gt; Default password: <b><i>admin</i></b><br />
+Click the <b>Settings</b> link in the top menu to get to the settings page (if not already there)</p>
+</li>
+<li>
+<p>Take some time and get familiar with all the available settings. Most should be self-explanatory, for additional information
+about each setting click the [<a href="Javascript:void(0)"><b>?</b></a>] link for help about the current setting.</p>
+<p>Don't forget to click the <b>Save changes</b> button at the bottom of the settings page to save your settings!</p>
+</li>
+<li>
+<p style="font-weight:bold">Things to do next</p>
+<p>Click the &quot;Profile&quot; link
+to set your name, e-mail, signature and *** CHANGE YOUR PASSWORD ***.</p>
+
+<p>To create additional staff accounts visit the &quot;Users&quot; page. The default user (Administrator) cannot be deleted.</p>
+
+<p>Add new categories (departments) on the &quot;Categories&quot; page. The default category cannot be deleted, but it can be renamed.</p>
+
+<p>You can create canned responses on the &quot;Canned responses&quot; page. These are pre-written replies to common support questions.</p>
+
+<p>To access and manage your knowledgebase click the &quot;Knowledgebase&quot; link.
+Knowledgebase is a collection of answers to frequently asked questions (FAQ) and articles which provide self-help resources to your customers.
+<b>A comprehensive and well-written knowledgebase can drastically reduce the number of support tickets you receive and save a lot of your time.</b>
+You can arrange articles into categories and sub categories.</p>
+
+<p>Your customers will be able to post tickets on the index page:<br />
+http://www.yourdomain/hesk/index.php<br />
+or just<br />
+http://www.yourdomain/hesk</p>
+
+<p style="font-weight:bold"><span class="dest">If you have problems/questions see the &quot;HELP and Troubleshooting&quot; section further down.</span></p>
+</li>
+<li>
+<p style="font-weight:bold">Enjoy using HESK!</p>
+</li>
+</ol>
+
+<h2 id="upgrade">&raquo; Upgrading from old versions</h2>
+
+<p style="font-weight:bold"><span class="dest">Please take 5 minutes and read the upgrade instructions carefully and completely! This will ensure a proper and easy upgrade.</span></p>
+
+<p><b>Known upgrade issues</b><br />
+There are some known issues when upgrading from version 2.1 or older:</p>
+<ol>
+<li>HESK language will be reset to English as new text has been added. You can install additional languages later following instructions further down the page.</li>
+<li>There is a chance your login password will not work anymore after upgrade. If this happens you will need to <a href="http://www.hesk.com/troubleshooter/troubleshooter.php?step=8" target="_blank">reset your password</a>.</li>
+</ol>
+
+There are some additional issues when upgrading from version 0.94 or older:</p>
+<ol>
+<li>all &quot;Open&quot; tickets' status will be changed to &quot;Waiting reply&quot;</li>
+<li>the &quot;Last update&quot; date will actually show the ticket creation date for all existing (old) tickets until a new reply is added.</li>
+<li>the &quot;Last replier&quot; will show &quot;Customer&quot; for all existing (old) tickets until a new reply is added.</li>
+</ol>
+
+<p><span class="tip">TIP:</span> Perform the upgrade in low-traffic hours when your Web site receives the least amount of visits.</p>
+
+<p style="font-weight:bold">To upgrade HESK to version 2.2 follow these steps:</p>
+
+<ol>
+<li>
+<p><span class="dest" style="font-weight:bold">BACKUP YOUR EXISTING HESK DATABASE AND FILES!</span> Don't skip this step! Really, don't!<br /><br />
+<span class="tip">TIP:</span> Most Web hosts allow you to backup files and databases from your control panel. Contact your host if not sure how to do that.</p>
+</li>
+<li>
+<p>Delete or rename these folders located inside your main Hesk folder:<br />
+- /emails/<br />
+- /language/<br />
+</p>
+<p>Depending on the version you are upgrading from, the Hesk upgrade script might instruct you to delete additional files.</p>
+</li>
+<li>
+<p>Upload <b>ALL</b> HESK files to your server <b>EXCEPT</b> these ones (do NOT upload these files):<br />
+- hesk_settings.inc.php<br />
+- header.txt<br />
+- footer.txt</p>
+
+<p>The &quot;img&quot; folder and images inside must be transferred to your server in BINARY mode and all other HESK files and folders in ASCII mode.</p>
+</li>
+<li>
+<p>Make sure the following files/folders are writable by the script:<br />
+- file <b>hesk_settings.inc.php</b> - on Unix (Linux) servers CHMOD this file to <b>666</b> (rw-rw-rw-)<br />
+- directory <b>attachments</b> - on Unix (Linux) servers CHMOD this directory to <b>777</b> (rwxrwxrwx)</p>
+</li>
+<li>
+<p>Open <b>hesk/install</b> in your browser, for example:<br />
+http://www.yourdomain.com/hesk/install<br />
+(modify the URL to show the HESK install folder on your server)</p>
+</li>
+<li>
+<p>HESK setup script will show up on the install URL. Click <b>Update existing install</b> and follow instructions. The update consists of 4 steps:</p>
+   <ol>
+   <li><b>STEP 1: License agreement</b> - read the HESK License agreement and confirm that you agree with the terms.</li>
+   <li><b>STEP 2: Check setup</b> - the script will test your server to see if all required settings are correct and advise solutions to any problems.</li>
+   <li><b>STEP 3: Database settings</b> - check your MySQL database settings and the script will test them.<br />
+       <span class="dest">The settings must be the same as with your old HESK installation</span></li>
+   <li><b>STEP 4: Update database tables</b> - everything OK, the script will update your existing MySQL tables to version 2.1.</li>
+   </ol>
+</li>
+<li>
+<p style="font-weight:bold">Before closing the upgrade script, <span class="dest">DELETE the &quot;install&quot; directory on your server!</span></p>
+</li>
+<li>
+<p>Click the Continue link in update script or open <b>admin.php</b> in your browser, for example:<br />
+http://www.yourdomain.com/hesk/admin/<br />
+Login using username <b>Administrator</b> and your password, then click the <b>Settings</b> link in the top menu to get to the settings page (if not already there).</p>
+</li>
+<li>
+<p>Take some time and get familiar with all the new available settings. Most should be self-explanatory, for additional information
+about each setting click the [<a href="Javascript:void(0)"><b>?</b></a>] link for help about the current setting.</p>
+<p>Don't forget to click the <b>Save changes</b> button at the bottom of the settings page to save your settings!</p>
+</li>
+<li>
+<p>If you purchased a <a href="https://www.hesk.com/buy.php" target="_blank">HESK License</a> in the past you might need to download and install a new copy of the license from
+<a href="https://www.hesk.com/license" target="_blank">License Manager</a>.</p>
+</li>
+<li>
+<p style="font-weight:bold"><span class="dest">If you have problems/questions see the &quot;HELP and Troubleshooting&quot; section further down.</span></p>
+</li>
+<li>
+<p style="font-weight:bold">Enjoy using HESK!</p>
+</li>
+</ol>
+
+<h2 id="help">&raquo; HELP and Troubleshooting</h2>
+
+<h3>1. What is CHMOD and FTP?</h3>
+
+<p>I have prepared a simple <a href="http://www.phpjunkyard.com/ftp-chmod-tutorial.php" target="_blank">FTP
+and CHMOD tutorial</a> that will help you FTP files to your server and set correct CHMOD settings.</p>
+
+<h3>2. I did CHMOD hesk_settings.inc.php and attachments folder, but I still get an error.</h3>
+
+<p>CHMOD doesn't work on all servers, Windows (IIS) servers, for example, don't understand CHMOD command.
+You need to make sure the <i>Internet Guest Account</i> (IUSR) has permission to modify, write and read the required
+files. Further instructions can be found <a href="http://developers.phpjunkyard.com/viewtopic.php?t=1406" target="_blank">HERE</a>.</p>
+
+<p>In case you still can't get it to work, contact your hosting company
+and ask them to set modify/write/read permissions for file <b>hesk_settings.inc.php</b> and directory <b>attachments</b>.</p>
+
+<h3>3. The security image doesn't show up correctly.</h3>
+
+<p>For the image to work your server must have GD library installed. You can test if your server supports all the required functions by uploading the
+<b>gd_test.php</b> file to your server and open it in your browser. If you get an error or empty page when opening gd_test.php you should either ask your
+hosting company to install the GD library for PHP or disable the anti-SPAM image in the HESK admin panel under &quot;Settings&quot;</p>
+
+<h3>4. The installation (or upgrade) script doesn't move from the &quot;License agreement&quot; page.</h3>
+
+<p>You did check that you agree with the license agreement, didn't you? In that case your server probably has problems with PHP sessions.
+Download <a href="http://www.phpjunkyard.com/extras/session_test.zip">Session test files</a>,
+upload them to your server and open <b>session_test.php</b> in your browser.</p>
+<p>Click the CLICK HERE FOR PAGE 2 link. If you get &quot;$_SESSION['test'] is set to:&quot; <b>FALSE</b>
+contact your hosting company and ask them to check if PHP session are working normally. If you get <b>TRUE</b> instead of FALSE the problem is something else,
+try searching for help <a href="http://developers.phpjunkyard.com">PHPJunkyard Support forum</a>.</p>
+
+<h3>5. I get an <span class="dest">Your session has expired</span> error when trying to login to admin panel.</h3>
+
+<p>Your server probably has problems with PHP sessions. Download <a href="http://www.phpjunkyard.com/extras/session_test.zip">Session test files</a>,
+upload them to your server and open <b>session_test.php</b> in your browser.</p>
+<p>Click the CLICK HERE FOR PAGE 2 link. If you get &quot;$_SESSION['test'] is set to:&quot; <b>FALSE</b>
+contact your hosting company and ask them to check if PHP session are working normally. If you get <b>TRUE</b> instead of FALSE the problem is something else,
+try searching for help <a href="http://developers.phpjunkyard.com">PHPJunkyard Support forum</a>.</p>
+
+<h3>6. HESK doesn't send out ticket e-mails</h3>
+
+<p>HESK uses the standard PHP mail() command so if sending out e-mails isn't working there are two common problems:</p>
+
+<ol>
+<li>Some servers restrict sending e-mails from scripts to local domains only (i.e. domains hosted
+on the server). If you can receive e-mails to <i>something@YOURDOMAIN.com</i> but not
+to third-party domains (for example something@YAHOO.com) this is probably the case. Contact your hosting company
+and ask them to remove the restriction.</li>
+<li>If no e-mails at all are sent then the PHP mail() function is probably not configured properly.
+Contact your hosting company and ask them to check if PHP mail() is enabled and working correctly.</li>
+</ol>
+
+<h3>7. File uploads don't work.</h3>
+
+<p>For file uploads to work your server must have <b>file.uploads</b> enabled in the PHP configuration and the <b>attachments</b>
+folder must be writable by HESK. There are also other PHP settings that can limit file uploads,
+especially the size and number of attachments. Usually keeping the attachment size limit
+under 2 Mb (2048 Kb) works, but also try lower values, for example 0.5 Mb (512 Kb).</p>
+
+<p>Important PHP settings for file uploads are <i>upload_max_filesize</i>, <i>upload_tmp_dir</i>, <i>post_max_size</i> and <i>max_input_time</i> directives in php.ini.
+If you are not sure what your settings are, you will need to contact your hosting company and
+ask them what file size limits should you use for file uploads.</p>
+
+<h3>8. What do statuses mean (New, Replied, Waiting Reply, Resolved)?</h3>
+
+<ol>
+<li><b>New</b> - newely created ticket with no replies yet.</li>
+<li><b>Waiting reply</b> - this tickets waits for your reply.</li>
+<li><b>Replied</b> - you have replied to this ticket, waiting for reply from other party.</li>
+<li><b>Resolved (Closed)</b> - the ticket has been resolved, no more replies necessary.</li>
+</ol>
+
+<p>&nbsp;</p>
+
+<h3>9. I am still having problems!</h3>
+
+<p>Visit the <a href="http://www.hesk.com/help.php">HESK Knowledgebase</a> for more suggestions.</p>
+
+<p>&nbsp;</p>
+
+<p>Since this script is free no support is guaranteed. If you can't get the script to work please go
+through this readme file again carefully and repeat the installation step-by-step (delete old
+files and folders from the server then try again).</p>
+
+<h2 id="customize">&raquo; Customize the look</h2>
+
+<p>You may add your header HTML code to header.txt and footer HTML code to footer.txt file. This code will then be used throughout the HESK. You will have to use <b>full image URLs</b> in the code. For example instead of<br />
+&lt;img src=&quot;images/image.jpg&quot; ... &gt; use<br />
+&lt;img src=&quot;http://www.yourdomain.com/images/image.jpg&quot; ... &gt;!<br />
+Same goes for any Javascripts or CSS files if you are calling them from within the header or footer.</p>
+
+<p>You may also edit the <b>style.css</b> file to customize colors and fonts of your helpdesk. The code inside is CSS (Cascading Style Sheets); you can learn CSS <a href="http://www.w3schools.com/css/default.asp" target="_blank">here</a> (it's quite simple and you can easily edit all colors with it).</p>
+
+
+<h2 id="translate">&raquo; Translate HESK to your language</h2>
+
+<p>HESK supports multiple languages, translating it to your language is easy.</p>
+
+<p>To translate HESK to your language follow these steps:</p>
+
+<ol>
+<li>Go to your <b>language</b> folder and copy the default <b>en</b> folder entirely into a new one, for example named <b>fr</b> (for French).</li>
+<li>Go to the new (&quot;fr&quot;) folder and open the <b>text.php</b> file inside in a plain text editor like Notepad or Wordpad.</li>
+<li>Edit the language file header (first lines that start with *) with your information. Please follow the provided format.</li>
+<li>Translate all lines containing text. You may translate <b>only the right side of each line</b>, for example:<br /><br />
+$hesklang['DO_NOT_CHANGE_THIS']='TRANSLATE WORDS HERE';<br /><br />
+<p><span class="dest">When translating make sure to:</span></p>
+<ul>
+<li>keep the line format: single quotes (') around each phrase and lines must end with a semi-colon (;)</li>
+<li>if you use single quotes in the words escape them with a backslash (\). WRONG: can't CORRECT: can\'t</li>
+<li>do not change special codes such as %s and %d as they are used by HESK</li>
+<li>Language name is stored in the<br />
+<b>$hesklang['LANGUAGE']='English';</b><br />
+variable, change it for example to:<br />
+$hesklang['LANGUAGE']='<b>Francais</b>';</li>
+<li>The character encoding is set in the<br />
+<b>$hesklang['ENCODING']='iso-8859-1';</b><br />
+variable. Change it to the encoding your website uses. If not sure you can set it to:<br />
+$hesklang['ENCODING']='<b>utf-8</b>';</li>
+</ul>
+<br />
+</li>
+<li>Save changes to the text.php file</li>
+<li>Translate all the text files inside <b>emails</b> folder (language/fr/email). More information about translating e-mails can be found further down this page.</li>
+<li>Upload the entire new language folder to the server, for example, upload contents of the <b>fr</b> folder to:<br /><b>http://www.domain.com/hesk/language/fr</b></li>
+<li>Open the text.php file in your browser to check syntax, for example:<br />
+ <b>http://www.domain.com/hesk/language/fr/text.php</b><br />
+ If everything is OK you should get a message saying &quot;No syntax errors detected in /text.php&quot;.
+ If you get any errors then the PHP syntax is wrong. The error should give you line number with error, check syntax around that line (make sure that line and the line before end with ";", single quotes must be escaped with \' etc.).</li>
+<li>Login to your HESK administration panel and go to <b>Settings</b>.</li>
+<li>Is your new language listed under <b>Language Settings</b> &gt; <b>Default Language</b>?<br /><br />
+If <b>yes</b>, the language has been installed properly. You can make it the HESK default language by choosing it and clicking the <b>Save Changes</b> button at the bottom of the Settings page.<br /><br />
+If <b>no</b>, something is wrong. Clicking the <b>Test language folder</b> link and it will list all the folders located in the language folder and reason(s) why the language isn't installed.</li>
+<li>To finish language install don't forget to click the <b>Save Changes</b> button at the bottom of the settings page!</li>
+<li>Test HESK with the new language and make sure it works OK.</li>
+</ol>
+
+<p><span class="dest">If you want to allow your customers to choose a language from all the installed HESK languages, enable the <b>Multiple languages</b> setting (set it to <b>YES</b>). If you provide support
+in one (default) language, leave it disabled (set it to <b>NO</b>).</span></p>
+
+<p><span class="dest">If you translate HESK to your language, please post it to the PHPJunkyard forum for others to download.</span></p>
+
+<h2 id="emails">&raquo; Customize e-mail messages</h2>
+
+<p>You can easily customize or translate e-mail messages sent by HESK. E-mail message templates can be found in the &quot;emails&quot; folder located inside each sub-folder of the <b>language</b> folder (one e-mails folder per language):</p>
+<p>
+<b>category_changed.txt</b> - e-mail sent to notify staff when a ticket category is changed<br />
+<b>forgot_ticket_id.txt</b> - e-mail reminder sent if someone forgot (lost) their ticket tracking number.<br />
+<b>new_pm.txt</b> - you received new private message (mail) from another staff member.<br />
+<b>new_reply_by_customer.txt</b> - e-mail sent to staff (you) when the customer replies to the ticket.<br />
+<b>new_reply_by_staff.txt</b> - e-mail sent to the customer who submitted the ticket after you (your staff) respond to the ticket.<br />
+<b>new_ticket.txt</b> - e-mail sent to the person who submits a new ticket.<br />
+<b>new_ticket_staff.txt</b> - e-mail sent to staff (you) when someone submits a new ticket.<br />
+<b>ticket_assigned_to_you.txt</b> - e-mail sent to staff (you) when a new ticket is assigned to you.<br />
+</p>
+
+<p>Simply edit the e-mail template files and upload them over the original files. You can use these special tags in the templates and they will be replaced with actual values by HESK:</p>
+
+<ol>
+<table id="installation" summary="This is a simple two columns table - the first column names a special tag and in second one has the replacement variable">
+<thead>
+<tr>
+<th>Special tag</th>
+<th>Replaced with</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td nowrap="nowrap"><var>%%NAME%%</var></td>
+<td>customer name</td>
+</tr>
+<tr>
+<td nowrap="nowrap"><var>%%SUBJECT%%</var></td>
+<td>ticket subject</td>
+</tr>
+<tr class="odd">
+<td nowrap="nowrap"><var>%%TRACK_ID%%</var></td>
+<td>ticket tracking ID</td>
+</tr>
+<tr>
+<td><var>%%TRACK_URL%%</var></td>
+<td>ticket URL</td>
+</tr>
+<tr class="odd">
+<td nowrap="nowrap"><var>%%SITE_TITLE%%</var></td>
+<td>Web site title </td>
+</tr>
+<tr>
+<td><var>%%SITE_URL%%</var></td>
+<td>Web site URL (as set on settings page)</td>
+</tr>
+<tr>
+<td><var>%%MESSAGE%%</var></td>
+<td>Message written by the customer or staff.</td>
+</tr>
+<tr>
+<td><var>%%CUSTOM1%%</var><br />...<br />
+<var>%%CUSTOM20%%</var></td>
+<td style="vertical-align:top">Value of custom field 1 (or custom field 20 in the second case).</td>
+</tr>
+</tbody>
+</table>
+</ol>
+
+<p>NOTE: file <b>new_pm.txt</b> (new private message (PM) received) only supports these tags:<br />
+%%NAME%% - name of the staff member who sent the PM<br />
+%%SUBJECT%% - subject of the PM<br />
+%%TRACK_URL%% - URL of the PM<br />
+%%SITE_TITLE%% - website title<br />
+%%SITE_URL%% - website URL</p>
+
+<p>You can turn off e-mail notifications on the &quot;Profile&quot; page (customers will still receive them).</p>
+
+<h2>&raquo; More FREE PHP Scripts</h2>
+
+<p>Get more FREE PHP scripts from PHPJunkyard, visit: <a href="http://www.phpjunkyard.com/">PHP Scripts</a>.</p>
+
+<h2>&raquo; Please rate this script</h2>
+
+<p>If you like this script please rate it or even write a review at:</p>
+
+<p><a href="http://php.resourceindex.com/detail/04946.html" target="_new">Rate this Script @ The PHP Resource Index</a></p>
+
+<p><a href="http://www.hotscripts.com/Detailed/46973.html" target="_blank">Rate this Script @ Hot Scripts</a></p>
+
+<h2 id="changelog">CHANGELOG</h2>
+
+<p><b>Changes in 2.2</b><br />
+- assign owners to tickets (assign tickets to individual staff members)<br />
+- admin panel shows last repliers' name<br />
+- more information can be entered into e-mails (category, message, ticket owner, custom fields)<br />
+- staff can now submit tickets<br />
+- added reporting features<br />
+- added staff private messages<br />
+- check for duplicate tracking ID<br />
+- improved ticket searching<br />
+- fixed bug where edit_post rewrites session variables when register_globals is enabled<br />
+- fixed bug where e-mails and URLs don't show correctly when editing ticket<br />
+- fixed bug where last replier didn't show correctly after deleting a post<br />
+- lock/unlock individual tickets<br />
+- new way of suggesting KB articles<br />
+- ticket history log (who closed, opened, locked or unlocked a ticket)<br />
+- more user-friendly error and success message handling<br />
+- added checks to fight CSRF-type attacks<br />
+- generate URLs that will pre-load category selection when submitting new tickets<br />
+- settings will now accept localhost URLs<br />
+- purge attachments when the ticket is deleted<br />
+- disable customer setting ticket priority level<br />
+- a number of minor changes and fixes.</p>
+
+<p><b>Changes in 2.1</b><br />
+- Full support for multiple languages<br />
+- Knowledgebase articles can now have attachments<br />
+- Increased custom fields number to 20<br />
+- Checkboxes now supported as custom fields<br />
+- Autologin feature<br />
+- Staff can edit all ticket details<br />
+- New redirect options after replying to a ticket (settable in Profile)<br />
+- Canned responses can be appended to the message instead of replacing it<br />
+- A read-only access to private knowledgebase by all staff<br />
+- Fixed numerous small bugs and issues thanks to large code testing and screening<br />
+- Improved security<br />
+- HESK moved to <a href="http://www.hesk.com">www.hesk.com</a> Web site, links within the script updated accordingly</p>
+
+<p><b>Changes in 2.0</b><br />
+- Updated user interface<br />
+- Fully featured knowledge base (categories, articles (counting views, able to rate), search, ...)<br />
+- Display of latest and top articles<br />
+- Before a ticket is submitted HESK will suggest matching Knowledgebase articles<br />
+- You can add notes to tickets (hidden from customer, viewable by staff)<br />
+- Limit features for staff (not just Administrator/Staff, now you can enable/disable individual features for individual users)<br />
+- Rating of staff replies (Helpful/Not helpful)<br />
+- Up to 10 custom field now<br />
+- Custom fields can be text, textarea, select or radio button<br />
+- Disable list users in admin<br />
+- Remember staff username<br />
+- Default ticket listing by status (new, waiting reply first) then priority<br />
+- Staff passwords encrypted - not simple SHA1, but multiple times<br />
+- Admin files moved to &quot;admin&quot; folder<br />
+- Added prefix to database names<br />
+- Autoclose tickets after X days<br />
+- Adjust server time to match your local time<br />
+- Updated anti-SPAM features<br />
+- And many other changes</p>
+
+<p><b>Changes in 0.94.1</b><br />
+- Fixed an XSS vulnerability on some servers (reported by Nemanja Avramovic, <a href="http://www.avramovic.info">www</a>)<br />
+- Changed the way file uploads are handled</p>
+
+<p><b>Changes in 0.94</b><br />
+- Added support for custom fields (up to 5)<br />
+- Added file attachments<br />
+- Added anti-SPAM security image<br />
+- Added canned responses<br />
+- Settings are now edited from the admin panel<br />
+- New ticket statuses (New, Replied, Waiting Reply, Resolved)<br />
+- Ticket ID reminder<br />
+- And many other changes (too many to list here)</p>
+
+<p>&nbsp;</p>
+
+<p style="text-align:center">&copy; Copyright <a href="http://www.hesk.com">HESK.COM</a> 2005-2010. All rights reserved.</p>
+
+</div>
+</div>
+</body>
+</html>
