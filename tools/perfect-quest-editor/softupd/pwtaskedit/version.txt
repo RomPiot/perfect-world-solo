@@ -1,0 +1,3 @@
+﻿[app]
+appvers=1120
+apphash=52796E025645FACB8746F227B70C1D2B

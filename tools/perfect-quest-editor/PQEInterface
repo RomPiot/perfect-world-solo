@@ -1,0 +1,598 @@
+﻿<InterfaceLanguage>
+	<LangsSupported>
+		<lang id="0" Caption="English" />
+		<lang id="1" Caption="Русский" />
+	</LangsSupported>
+	
+	<Strings>
+		<strLoading Text="Loading|Загрузка" />
+		<strLoadAddFiles Text="Loading secondary files|Загрузка вспомогательных файлов" />
+		<strSaving Text="Saving|Сохранение" />
+		<strBackuping Text="Creating backup|Создание резервной копии" />
+		<strConverting Text="Restructuring|Конвертирование" />
+		<strComparing Text="Comparsion|Сравнение" />
+		<strSync Text="Synchronizing|Синхронизация" />
+		<strItemSelect Text="Select item|Выбор предмета" />
+		<strMobSelect Text="Select monster|Выбор монстра" />
+		<strNPCSelect Text="Select NPC|Выбор NPC" />
+		<strMobNPCMineSelect Text="Select monster/NPC/mine|Выбор монстра / НИП / шахты" />
+		<strSkillSelect Text="Select skill|Выбор скилла" />
+		<strWayptSelect Text="Select way point|Выбор точки телепорта" />
+		<strTitleSelect Text="Select title|Выбор титула" />
+		<strNewFilterPreset Text="New preset|Новый фильтр" />
+		<strNewFilterPresetHeader Text="Create filter preset|Новая предустановка фильтра" />	
+		<strRenameFilterPresetHeader Text="Rename filter preset|Переименовать предустановку" />
+		<strNewFilterPresetName Text="Name|Имя" />		
+		<strUpdVersion Text="&qofont color&eq#777777&qcCurrent version: &qo&slashfont&qc&qofont color&eq#AFAFAF&qc%s&qo&slashfont&qc&qobr&qc&qofont color&eq#777777&qcLast version: &qo&slashfont&qc&qofont color&eq#AFAFAF&qc%s&qo&slashfont&qc|&qofont color&eq#777777&qcТекущая версия: &qo&slashfont&qc&qofont color&eq#AFAFAF&qc%s&qo&slashfont&qc&qobr&qc&qofont color&eq#777777&qcПоследняя версия: &qo&slashfont&qc&qofont color&eq#AFAFAF&qc%s&qo&slashfont&qc" />
+		<strApplyFilter Text="Apply filter|Применить фильтр" />
+		<strDisableFilter Text="Disable filter|Отключить фильтр" />
+		<strToAll Text="Apply action to all (%d)|Применить действие ко всем конфликтам (%d)" />
+		<strCollisionFound Text="Found existing ID: %u|Найдено совпадение ID: %u" />
+		<strFoundErrors Text="Quests with errors are found (%d)|Найдены квесты с ошибками (%d)" />
+		<strErrorCollisionID Text="ID collision|Повторяющийся ID" />
+		<strErrorAwardNAN Text="Ambiguous value in award item probability|Неопределённость в шансе наградного предмета" />
+		<strErrorAwardOverflow Text="Award items probability sum is over 100%|Сумма шансов наградных предметов превышает 100%" />
+		<strErrorFuryOverflow Text="Award fury value overflow|Переполнение значения ярости" />
+		<strDHour0 Text="Hour|Час" />
+		<strDHour1 Text="Hours|Часа" />
+		<strDHour2 Text="Hours|Часов" />
+		<strDMin0 Text="Minute|Минута" />
+		<strDMin1 Text="Minutes|Минуты" />
+		<strDMin2 Text="Minutes|Минут" />
+		<strDSec0 Text="Second|Секунда" />
+		<strDSec1 Text="Seconds|Секунды" />
+		<strDSec2 Text="Seconds|Секунд" />
+		<strDDay0 Text="Day|День" />
+		<strDDay1 Text="Days|Дня" />
+		<strDDay2 Text="Days|Дней" />
+		<strDialogName0 Text="Quest receiving|Получение задания" />
+		<strDialogName1 Text="Undone requirements|Невыполн. требования" />
+		<strDialogName2 Text="Item deliver|Доставить предмет" />
+		<strDialogName3 Text="In progress|В процессе выполнения" />
+		<strDialogName4 Text="Quest finish|Завершение задания" />
+		<strConstParams0 Text="Exit talk|Покинуть диалог" />
+		<strConstParams1 Text="Start quest|Начать задание" />
+		<strConstParams2 Text="Finish quest|Завершить задание" />
+		<strConstParams3 Text="Previous reply|Предыдущий вопрос" />
+		<strConstParams4 Text="Exit talk|Покинуть разговор" />
+		<strConstParams5 Text="Give up quest|Отменить задание" />
+		<strNewReply Text="New NPC reply|Добавить реплику" />
+		<strNextReply Text="Go to reply #%d|Переход к реплике #%d" />
+		<strNewAnswer Text="New player answer|Добавить ответ" />
+		<strLabelSource Text="Source:|Источник:" />
+		<strLabelTarget Text="Target:|Цель:" />
+		<strRemoveReplyConfirm Text="Remove selected NPC reply?|Удалить выбранную реплику?" />
+		<strRemoveAnswerConfirm Text="Remove selected player answer?|Удалить выбранный ответ?" />
+		<strSearch Text="Search by task name or ID|Поиск по имени или ID" />
+		<strNotLoaded Text="File is not loaded|Файл не загружен" />
+		<strVersion Text="Version|Версия" />
+		<strAnd Text="And|И" />
+		<strOr Text="Or|Или" />
+		<strNo Text="No|Нет" />
+		<strMenuDialogRolename Text="Player nickname --$name|Имя игрока --$name" />
+		<strMenuDialogMobAutopath Text="Monster autopath --@mob_id@|Автопуть к монстру --@mob_id@" />
+		<strMenuDialogNPCAutopath Text="NPC autopath --$NPC_id$|Автопуть к НИП'у --$NPC_id$" />
+		<strMenuDialogUnformatted Text="Unformatted text --^mText^m|Необрабатываемый текст --^mText^m" />
+		<strMenuDialogExpCol Text="Expand/Collapse|Развернуть/Свернуть" />
+		<strMenuDialogExpSel Text="Expand selected nodes|Развернуть выбранные квесты" />
+		<strMenuDialogColSel Text="Collapse selected nodes|Свернуть выбранные квесты" />
+		<strMenuDialogExpAll Text="Expand all nodes|Развернуть все квесты" />
+		<strMenuDialogColAll Text="Collapse all nodes|Свернуть все квесты" />
+		<strCopyTabValues Text="Copy current tab values|Копировать значения вкладки" />
+		<strPasteTabValues Text="Paste values into opened tab|Вставить значения в открытую вкладку" />
+		<strMenuDialogNewQuest Text="New quest|Создать квест" />
+		<strMenuDialogNewChild Text="Add child quest|Добавить дочерний квест" />
+		<strMenuDialogClone Text="Clone|Клонировать" />
+		<strMenuDialogCloneToChild Text="Clone to child|Клонировать как дочерний" />
+		<strMenuDialogImport Text="Import|Импортировать" />
+		<strMenuDialogImportToChild Text="Import to child|Импорт в дочерние" />
+		<strMenuDialogExport Text="Export|Экспортировать" />
+		<strMenuDialogRemove Text="Remove|Удалить" />
+		<strSetUniqueID Text="Set unique ID on quest clone. Start ID|Назначить уникальный ID начиная с" />
+		<strDroplistTimeType Text="Date,Month,Week,Day|Дата,Месяц,Неделя,День" />
+		<strDroplistMonth Text="All,January,February,March,April,May,June,July,August,September,October,November,December|Все,Январь,Февраль,Март,Апрель,Май,Июнь,Июль,Август,Сентябрь,Октябрь,Ноябрь,Декабрь" />
+		<strDroplistWeek Text="All,Mon,Tue,Wen,Thu,Fri,Sat,Sun|Все,ПН,ВТ,СР,ЧТ,ПТ,СБ,ВС" />
+		<strDroplistRace Text="All,Human,Untamed,Winged Elf,Tideborn,Earthguard,Nightshade|Все,Человек,Зооморф,Сид,Амфибия,Древний,Тень" />
+		<strDroplistClass Text="All,Blademaster,Wizard,Psychic,Venomancer,Barbarian,Assassin,Archer,Cleric,Seeker,Mystic,Duskblade,Stormbringer|Все,Воин,Маг,Шаман,Друид,Оборотень,Убийца,Лучник,Жрец,Страж,Мистик,Duskblade,Stormbringer" />
+		<strDroplistGender Text="All,Male,Female|Все,Муж,Жен" />
+		<strSettingsForm Text="Application settings|Настройки" />
+		<strFilterForm Text="Filter|Фильтр" />
+		<strUpdateForm Text="Update|Обновление" />
+		<strErrorsForm Text="Found errors|Найденные ошибки" />
+		<strUnusedForm Text="Unused values|Неиспользуемые значения" />
+		<strTimeGenForm Text="Time generator|Калькулятор периода времени" />
+		<strInterpreterForm Text="Expression editor|Редактор выражений" />
+		<strTabItemsWanted Text="Items wanted|Необходимо добыть" />
+		<strTabMonstersWanted Text="Kill monsters and get items|Убить монстров и получить предметы" />
+		<strTabTimeTable Text="Time table|Время запуска" />
+		<strAwardItems Text="Items|Предметы" />
+		<strAwardMonsters Text="Summon|Призыв" />
+		<strAwardRanks Text="Ranked award|Награда по местам" />
+		<strAwardTitles Text="Titles|Титулы" />
+		<strAwardKeys Text="Keys|Ключи" />
+		<strAwardHKeys Text="History keys|Ист. ключи" />
+		<strAwardExpr Text="Expressions|Выраж." />
+		<strAwardMsg Text="Msg /Display keys|Сообщ. / Display Keys" />
+		<strExpressions Text="Expressions|Выражения" />
+		<strPQExpressions Text="PQ Expressions|PQ Выражения" />
+		<strClientPath Text="Client folder|Путь к клиенту"/>
+		<strConfigsPath Text="sELedit configs|Конфиги" />
+		<strNewVersion Text="New version is available|Доступна новая версия" />
+		<strlblExpression Text="Expression|Выражение" />
+		<strlblVariable Text="Variable name:|Переменная:" />
+		<strlblCurrentValue Text="Current value:|Текущее значение:" />
+		<msgSaveConfirm Text="File has changes.\n\nExit without saving?|Имеются несохранённые данные.\n\nВыйти из программы без сохранения?" />
+		<msgReloadConfirm Text="File has changes.\n\nContinue without saving?|Имеются несохранённые данные.\n\nПродолжить без сохранения?" />
+		<msgAutoID Text="ID &quot%u&quot already exists.\nSet unique ID automatically?|ID &quot%u&quot уже занят.\nНазначить ID автоматически?" />
+		<msgFileNotFound Text="File not found|Файл не найден" />
+		<msgUnsupported Text="Unsupported version: %u|Неподдерживаемая версия: %u" />
+		<msgRemoveQuestsConfirm Text="Remove selected quests?|Удалить выбранные квесты?" />
+		<msgGameClientNotFound Text="Game client not found|Игровой клиент не найден" />
+		<msgCoordsFail Text="Unable to read role coordinates|Не удалось получить координаты" />
+		<msgNothingFound Text="Quests not found|Ничего не найдно" />
+		<msgAllExists Text="All quests of source file are exists in current|Все квесты файла-источника присутствуют в загруженном" />
+		<msgSourceNotFound Text="Source file not found|Файл-источник не найден" />
+		<msgSourceUnsupported Text="Source file version not supported: %u|Версия файла-источника не поддерживается: %u" />
+		<msgConfigsNotFound Text="Configs.pck not found|Configs.pck не найден" />
+		<msgSufacesNotFound Text="Surfaces.pck not found|Surfaces.pck не найден" />
+		<msgPCKReadError Text="Unable to read PCK|Невозможно прочесть архив" />
+		<msgPCKEntryNotFound Text="Can't find icon table in PCK|Не найден файл иконок в архиве" />
+		<msgPCKDecompressError Text="Decompress error|Ошибка распаковки файла" />
+		<msgElNotFound Text="Elements.data not found|Не найден elements.data" />
+		<msgElStructDirNotFound Text="Element configs directory not found|Не найдена директория хранения конфигов" />
+		<msgElStructNotFound Text="Structure file for this elements.data not found|Не найдена подходящая структура" />
+		<msgElStructError Text="Text structure does not match elements.data structure|Текстовая структура не соответствует структуре файла" />
+		<msgIcoDDSNotFound Text="DDS file not found|Не найден dds-файл" />
+		<msgIcoTXTNotFound Text="TXT file not found|Не найден txt-файл" />
+		<msgSkillNotFound Text="Skillstr.txt not found|Skillstr.txt не найден" />
+		<msgWayPTNotFound Text="WorldTargets.txt not found|WorldTargets.txt не найден" />
+		<msgClientDirNotFound Text="Game client directory not found|Директория игрового клиента не существует" />
+		<msgReportHeader Text="Errors occurred:|При загрузке файлов возникли следующие ошибки:" />
+		<msgSectionNotExists Text="Section &quot%s&quot doesn't exists|Секция &quot%s&quot не существует" />
+		<msgVarNotExists Text="Variable &quot%s.%s&quot doesn't exists|Переменная &quot%s.%s&quot не существует" />
+		<msgVarConvertError Text="Can't convert value &quot%s&quot|Ошибка конвертирования значения &quot%s&quot" />
+		<msgFilterEmpty Text="No one quest found|Не найдены квесты, удовлетворяющие всем условиям" />
+		<msgFilterNoCond Text="No conditions for comparsion|Нет условий сравнения" />
+		<msgRemovePresetConfirm Text="Delete current preset?|Удалить текущую предустановку?" />
+		<msgUpdateFail Text="Failed to download update. Try later.|Не удалось скачать обновление. Попробуйте позднее." />
+		<msgRemoveItemsConfirm Text="Remove selected items?|Удалить выбранные предметы?" />
+		<msgRemoveMobsConfirm Text="Remove selected monsters?|Удалить выбранных монстров?" />
+		<msgRemoveRankConfirm Text="Remove selected ranked awards?|Удалить выбранные ранговые награды?" />
+		<msgRemoveTitlesConfirm Text="Remove selected titles?|Удалить выбранные титулы?" />
+		<msgRemoveKeysConfirm Text="Remove selected keys?|Удалить выбранные ключи?" />
+		<msgRemoveExpressionsConfirm Text="Remove selected expressions?|Удалить выбранные выражения?" />
+		<msgRemoveMessagesConfirm Text="Remove selected messages?|Удалить выбранные сообщения?" />
+		<msgRemovePeriodsConfirm Text="Remove selected periods?|Удалить выбранные периоды?" />
+		<msgRemoveCharsConfirm Text="Remove selected characters?|Удалить выбранных персонажей?" />
+		<msgRemoveRegionsConfirm Text="Remove selected regions?|Удалить выбранные зоны?" />
+		<msgRemovePremTasksConfirm Text="Remove premise completed tasks?|Удалить требуемые квесты?" />
+		<msgRemoveMutexTasksConfirm Text="Remove premise undone tasks?|Удалить блокирующие квесты?" />
+		
+		<msgIncorrectExpression Text="Incorrect expression|Формула введена некорректно" />
+		<msgUnknownVariable Text="Unknown variable|Неизвестная переменная" />
+		<msgNoVariables Text="Expression has no variables.\nFor multiple value edit use common multi-aplying function.|Выражение не содержит переменных.\nДля мультиредактирования без использования переменных воспользуйтесь обычным массовым применением." />
+		<msgNoExpression Text="The expression can not be empty.|Выражение не может быть пустым." />
+		
+		
+		<msgCantDownloadApp Text="Failed to download update from server.|Не удалось скачать обновление с сервера." />
+		<msgCantSaveApp Text="Failed to save update file.\n\nIf app placed in system drive then restart it with administrator rights.|Не удалось сохранить обновление на диск.\n\nЕсли программа находится на системном диске, то следует запустить её от имени администратора." />
+		<msgCantRenameApp Text="Failed to rename application.\n\nIf app placed in system drive then restart it with administrator rights.|Не удалось переименовать основное приложение.\n\nЕсли программа находится на системном диске, то следует запустить её от имени администратора." />
+		
+		<msgFontNotFound Text="Can't find system font used by application.\n\nRunning without this font may cause of uncorrect elements displaying.\n\nFont file has been placed near main application. (REFSAN.TTF)\n\nRun program anyway?|В системе не обнаружен шрифт, используемый программой.\n\nЗапуск без установленного шрифта может привести к некорректному отображению элементов, по этому рекомендуется сначала его установить.\n\nФайл шрифта находится рядом с программой. (REFSAN.TTF)\n\n'Запустить программу без наличия шрифта?" />
+	</Strings>
+
+	<PerfectQuestEditMain>
+		<pTabProp Caption="Main Props|Настройки">
+			<sbOpen Hint="Load tasks.data (Ctrl+O)|Загрузить tasks.data (Ctrl+O)" />
+			<sbRecent Hint="Load history|История загрузок" />
+			<sbSave Hint="Save (Ctrl+S)|Сохранить (Ctrl+S)" />
+			<sbSaveAs Hint="Save as (Shift+Ctrl+S)|Сохранить как (Shift+Ctrl+S)" />
+			<sbConvert Hint="Save in other version|Конвертирование" />
+			<sbSettings Hint="Application settings|Настройки" />
+			<sbFilter Hint="Filter (Shift+Ctrl+F)|Фильтр (Shift+Ctrl+F)" />
+			<sbTranslate Hint="Copy text data from other tasks.data (Ctrl+T)|Синхронизация текстов (Ctrl+T)" />
+			<sbCompare Hint="Compare other tasks.data with current (Ctrl+R)|Сравнить tasks.data с текущим (Ctrl+R)" />
+			<sbUnused Hint="Unused values|Неиспользуемые значения" />
+			
+			<sbRemoveColor Hint="Remove quest name color|Удалить цвет квеста" />
+			<sbRemoveAuthorColor Hint="Remove quest author color|Удалить цвет автора" />
+			<edit_m_ID Label="ID" />
+			<combo_m_enumMethod Label="Complete requrements|Условие выполнения" Values="Auto,Kill monster,Get item,NPC Talk,Reach site,Wait,Unknown,Unknown,Protect NPC,Unknown,PQ variable value,Leave site,Find treasure,Kill player,Change form,Reach Lvl or Realm,Perform emotion,Force Navigate,TM Icon State ID|Авто,Убить монстра,Получить предмет,Разговор с NPC,Достигнуть зоны,Подождать,Unknown,Unknown,Защитить NPC,Unknown,Значение PQ перем.,Покинуть зону,Найти сокровище,Убить игрока,Изменить форму,Дост. ур. или небо,Выполнить действие,Force Navigate,TM Icon State ID" />
+			<edit_m_ulAwardNPC Label="Award NPC|Приём" />
+			<edit_m_ulDelvNPC Label="Delv NPC|Выдача" />
+			<combo_m_enumFinishType Label="Complete type|Завершение" Values="Auto,NPC Talk,Confirm|Авто,Разговор с NPC,Подтвердить" />
+			<combo_m_ulType Label="Quest type|Тип квеста" Values="Normal,Cycle,Sp. Cultivation,Hero,Challenge,Adventure,Errand,Legendary,Battle,Public,Divine Contract,Faction Quest,Notice,Daily Quests,Cultivation,Main Quests,Side Quests,Event,Divine Contract,Faction,Errand,Legend,Reply|Normal,Cycle,Sp. Cultivation,Hero,Challenge,Adventure,Errand,Legendary,Battle,Public,Divine Contract,Faction Quest,Notice,Daily Quests,Cultivation,Main Quests,Side Quests,Event,Divine Contract,Faction,Errand,Legend,Reply" />
+			<combo_m_lAvailFrequency Label="Repeat type|Тип повтора" Values="None,Day,Week,Month,Minute,Hour|Нет,День,Неделя,Месяц,Минута,Час" />
+			<edit_m_ulPremise_Lev_Min Label="Min|Мин." />
+			<edit_m_ulPremise_Lev_Max Label="Max|Макс." />
+			<edit_m_lPeriodLimit Label="Count|Кол-во" />
+			<check_m_bShowByLev Caption="Level|Уровень" />
+			<edit_m_szName Label="Task name|Имя квеста" />
+			<edit_m_pszSignature Label="Task author|Автор" />		
+			
+			<check_m_bShowByRepu Caption="Reputation|Репутация" Hint="Reputation&qobr&qc &qobr&qcQuest show only when min. and max.&qobr&qcreputation values are ...|" />
+			<edit_m_lPremise_Reputation Label="Min|Мин." />
+			<edit_m_lPremise_RepuMax Label="Max|Макс." />
+			<check_m_bShowByGender Caption="Gender|Пол" />
+			<combo_m_ulGender Values="All,Male,Female|Все,Мужской,Женский" />
+			<check_m_bShowByPeriod Caption="Status|Статус" />
+			<combo_m_ulPremise_Period Values="0 None,1 Spiritual Adept,2 Aware of Principle,3 Aware of Harmony,4 Aware of Discord,5 Aware of Coalescence,6 Transcendant,7 Enlightened One,8 Aware of Vacuity,20 Aware of Myriad,21 Master of Harmony,22 Celestial Sage,30 Aware of the Void,31 Master of Discord,32 Celestial Demon|0 Нет,1 Любопытный,2 Опытный,3 Рассудительный,4 Загадочный,5 Жестокий,6 Злой,7 Отрешенный,8 Благочестивый,20 Безупречный,21 Просвещенный,22 Бессмертный,30 Демон,31 Дух зла,32 Сын ада" />
+			<edit_m_ulSuitableLevel Label="Suitable Lvl|Подх. ур." Indent="10|20" />
+			<check_m_bShowByDeposit Caption="Coins|Тр.юаней" />
+			<edit_m_ulGoldWanted Label="Gold Wanted|Треб. золота" Indent="3|1" />
+			<combo_m_ulPremise_Faction Values="No,Yes|Нет,Да" />
+			<combo_m_iPremise_FactionRole Label="Role|Звание" Indent="51|33" Values="Role 0,Role 1,Master,Marshal,Major,Captain,Member|Role 0,Role 1,Мастер,Маршал,Майор,Капитан,Рядовой" />
+			<check_m_bAbsTime Caption="TimeLimit|Огр. врем." />
+			<edit_m_ulWaitTime Label="WaitTime|Тр. подожд." Indent="23|4" />
+			<edit_m_ulMaxReceiver Label="Max Receive|Макс. вып." Indent="4|12" />
+			<edit_m_lSkillLev0 Label="Smith|Кузнец" Indent="41|31" />
+			<edit_m_lSkillLev1 Label="Tailor|Портной" Indent="42|26" />
+			<edit_m_lSkillLev2 Label="Craftsman|Ремесленник" Indent="14|-2" />
+			<edit_m_lSkillLev3 Label="Apothecary|Аптекарь" Indent="8|19" />
+			<check_m_bSkillTask Caption="Craft. skills|Ремесл. навыки" />
+			<check_m_bShowByFaction Caption="Faction|Клан" />
+			
+			<check_m_Occupations11 Caption="Stormbr.|Stormbr." />
+			<check_m_Occupations10 Caption="Duskblade|Duskblade" />
+			<check_m_Occupations8 Caption="Seeker|Страж" />
+			<check_m_Occupations5 Caption="Assassin|Убийца" />
+			<check_m_Occupations4 Caption="Barbarian|Обор." />
+			<check_m_Occupations6 Caption="Archer|Лучник" />
+			<check_m_Occupations0 Caption="Blade|Воин" />
+			<check_m_Occupations9 Caption="Mystic|Мистик" />
+			<check_m_Occupations2 Caption="Psychic|Шаман" />
+			<check_m_Occupations3 Caption="Venom.|Друид" />
+			<check_m_Occupations7 Caption="Cleric|Жрец" />
+			<check_m_Occupations1 Caption="Wizard|Маг" />
+			<check_m_bChooseOne Caption="Choose one|Выбрать один" />
+			<check_m_bRandOne Caption="Random one|Случайный" />
+			<check_m_bExeChildInOrder Caption="All in order|Все по прядку" />
+			<pChildQuests Caption="Child quests|Дочерние квесты" />
+			<check_m_bShowByOccup Caption="Occupations|Профессии" />
+			
+			<check_m_bDisplayInExclusiveUI Caption="In exclusive window|В сундуке на экране" />
+			<check_m_bOfflineFail Caption="Offline fail|Оффлайн провал" />
+			<check_m_bSwitchSceneFail Caption="Switch location fail|Провал при смене лок." />
+			<check_m_bHidden Caption="Hidden|Скрытый" />
+			<check_m_bShowPrompt Caption="Show in running quests|Показыв. в текущих кв." />
+			<check_m_bUsedInTokenShop Caption="Used In Token Shop|Used In Token Shop" />
+			<check_m_bDisplayInTitleTaskUI Caption="In title window|В окне титулов" />
+			<check_m_bShowByKing Caption="Show by king|Показывать королю" />
+			<check_m_bPremIsKing Caption="Premise king|Необх. быть королём" />
+			<check_m_bGM Caption="Only GM|Только для GM" />
+			<check_m_bClearAsGiveUp Caption="Clear as give up|Очистить после отмены" />
+			<check_m_bKeyTask Caption="Key task|Ключевой" />
+			<check_m_bMarriage Caption="Marriage|Свадебный" />
+			<check_m_bFailAsPlayerDie Caption="Fail on player die|Провал после смерти" />
+			<check_m_bParentAlsoFail Caption="Parent also fail|Родитель провал." />
+			<check_m_bParentAlsoSucc Caption="Parent also success|Родитель. вып. успешно" />
+			<check_m_bCanRedoAfterFailure Caption="Repeatable after fail|Повтор. после неудачи" />
+			<check_m_bCanRedo Caption="Repeatable|Повторяемый" />
+			<check_m_bCanGiveUp Caption="Cancalable|Можно отменить" />
+			<check_m_bLeaveFactionFail Caption="Leave faction fail|Выход из клана провал" />
+			<check_m_bShowBySpouse Caption="Show by spouse|Показывать супругам" />
+			<check_m_bPremise_Spouse Caption="Premise spouse|Необх. быть супругом" />
+			<check_m_bNeedRecord Caption="Record after complete|Запись выполненного" />
+			<check_m_bShowDirection Caption="Show Direction|Show Direction" />
+			<check_m_bCanSeekOut Caption="Show in avaliable|Показ. в доступных" />
+			<check_m_bShowByWeddingOwner Caption="Show by wedding owner|Show by wedding owner" />
+			<check_m_bPremiseWeddingOwner Caption="Prem. Wedding Owner|Prem. Wedding Owner" />
+			<check_m_bShowGfxFinished Caption="Show GFX after complete|Показать GFX выполн." />
+			<pProps Caption="Properties|Свойства" />
+			
+			<check_m_bPremItemsAnyOne Caption="Any one|Один любой" />
+			<check_m_bItemNotTakeOff Caption="Do not withdraw premise items|Не забирать требуемые предметы" />
+			<check_m_bShowByItems Caption="Premise items|Требуемые предметы" />
+			<lvPremItems Values="C,Item,Amount|О,Предмет,Кол-во" />
+			<lvGivenItems Label="Given items|Выдаваемые предметы" Values="C,Item,Amount|О,Предмет,Кол-во" />
+		</pTabProp>
+		<pTabAddProp Caption="Additional props|Доп. настройки">
+			<check_m_bNotIncCntWhenFailed Caption="Not inc when failed|Не ув. при провале" />
+			<check_m_bDeliverySkill Caption="Skill|Скилл" />
+			<check_m_bAutoDeliver Caption="Autostart|Автозапуск" />
+			<check_m_bDeathTrig Caption="Start on death|Активация при смерти" />
+			<check_m_bTrigCtrl Caption="Trigger|Триггер" />
+			<check_m_bShowByHistoryStage Caption="Histrory stages|Исторические стадии" />
+			<check_m_bShowByNeedRecordTasksNum Caption="Record compl.cnt|Зап. кол-во вып." />
+			<check_m_bRoleTaskLimit Caption="Role limit|Для персонажа" />
+			<check_m_bAccountTaskLimit Caption="Account limit|Для аккаунта" />
+			<check_m_bShowByTransformed Caption="Check form|Пров. образ" />
+			<check_m_bIsLibraryTask Caption="Library task|Доска 7и уб." />
+			<check_m_bTransTo Caption="Trans to|Телепорт" />
+			<check_m_bIsUniqueStorageTask Caption="Unique task|Актив. только этот" />			
+			<pRunLimit Caption="Quest execute limitations|Ограничение выполнений задания" />
+			<edit_m_iDeliveredSkillLevel Label="Level|Уровень" Indent="47|27" />
+			<edit_m_iPremHistoryStageIndex1 Label="Index 2|Индекс 2" Indent="26|16" />
+			<edit_m_iPremHistoryStageIndex0 Label="Index 1|Индекс 1" Indent="26|16" />
+			<edit_m_bPremCheckMaxHistoryLevel Label="Max level|Макс. ур." Indent="23|22" />
+			<edit_m_ucTransformedForm Label="Change form|Изменить образ" Indent="24|7" />
+			
+			<check_m_bPremCheckForce Caption="Check force|Проверять фр." />
+			<check_m_bShowByForceActivityLevel Caption="Activity Level|Activity Level" />
+			<check_m_bShowByForceSP Caption="Prem SP|Необх. дух" />
+			<check_m_bShowByForceExp Caption="Exp|Опыт" />
+			<check_m_bShowByForceContribution Caption="Contribution|Вклад" />
+			<check_m_bShowByForceReputation Caption="Reputation|Престиж" />
+			<check_m_bShowByFactionContrib Caption="Contrib points|Очки вклада" />
+			<check_m_bClearContrib Caption="Clear contrib points|Очистить очки вклада" />
+			<check_m_bPremCheckRealmLevel Caption="Check realm level|Проверять уровень неба" />
+			<check_m_bPremCheckRealmExpFull Caption="Prem realm exp full|Необх. макс. опыт неба" />
+			<check_m_bShowByRealmLevel Caption="Realm level|Уровень неба" />
+			<check_m_bPremCheckReincarnation Caption="Check reincarnation|Проверять перерождение" />
+			<check_m_bShowByReincarnation Caption="Reincarnation|Перерождение" />
+			<check_m_bShowByGeneralCardRank Caption="Check card rank|Проверять тип карты" />
+			<check_m_bShowByGeneralCard Caption="General card|Получение карт аватар" />
+			<check_m_bShowByForce Caption="Force|Фракция" />
+			<check_m_bLeaveForceFail Caption="Fail on leave force|Провал при выходе из фракции" />
+			
+			<edit_m_iFactionExpContribWanted Label="ExpContribWant|ExpContribWant" Indent="7|7" />
+			<edit_m_iFactionContribWanted Label="Contrib Wanted|Contrib Wanted" Indent="14|14" />
+			<edit_m_ulReachRealmLevel Label="Reach realm level|Достигн. ур. неба" />
+			<edit_m_ulPremRealmLevelMin Label="Min|Мин" />
+			<edit_m_ulPremRealmLevelMax Label="Max|Макс" />
+			<edit_m_ulReachReincarnationCount Label="Reincarnat. count|Необх. кол-во" Indent="0|15" />
+			<edit_m_iPremGeneralCardRank Label="Card type|Тип карт" Indent="46|52" />
+			<edit_m_ulPremGeneralCardCount Label="Unique card count|Кол-во уник.карт" />
+			<edit_m_ulPremGeneralCardRankCount Label="Same type count|Кол. одного типа" Indent="2|-2" />
+
+			<edit_m_ulReachLevel Label="Reach level|Дост. ур." Indent="4|18" />
+			<edit_m_ulInventorySlotNum Label="Inv Slot Num|Inv Slot Num" Indent="1|1" />
+			<combo_m_uiEmotion Label="Do emotion|Исп. действие" Values="None,Wave,Nod,Headshake,Shrug,Laugh Out Loud,Angry,Faint,Sad,Kiss,Shy,Salute,Sit Down,Charge,Thin,Provoke,Victory,Stretch,Combat,Attack 1,Attack 2,Attack 3,Attack 4,Defend,Fall Over,Fall Down,Look,Dance,Fashion Weapon,Reserved,Reserved,Kiss,Embrace,Meditate,Jump And Roll,Run And Roll|None,Wave,Nod,Headshake,Shrug,Laugh Out Loud,Angry,Faint,Sad,Kiss,Shy,Salute,Sit Down,Charge,Thin,Provoke,Victory,Stretch,Combat,Attack 1,Attack 2,Attack 3,Attack 4,Defend,Fall Over,Fall Down,Look,Dance,Fashion Weapon,Reserved,Reserved,Kiss,Embrace,Meditate,Jump And Roll,Run And Roll" />
+			<check_m_bCompareItemAndInventory Caption="Comp Item And Inv|Comp Item And Inv" />
+			
+			<check_m_bNotClearItemWhenFailed Caption="Not clear quest items on fail|Не забирать кв. предмет при провале" />
+			<check_m_bClearAcquired Caption="Clear quest items on success|Забрать кв. предмет при выполнении" />
+			
+			<lvItemsWanted Values="Cmn,Item,Amount,Prob,Period|Общий,ID,Количество,Шанс,Период" />
+			<lvMonstersWanted Values="Monster,Cnt,Item,Cnt,C,Prob,KilLv,DPH,DPS|Монстр,Кол,Предмет,Кол,О,Шанс,KilLv,DPH,DPS" />
+			<lvTimeTable Values="Type,Hr,Min,Day,Month,Year,WD,Hr,Min,Day,Month,Year,WD|Тип,Час,Мин,День,Месяц,Год,ДН,Час,Мин,День,Месяц,Год,ДН" />
+		</pTabAddProp>
+		
+		<pTabPQ Caption="Team and PVP|Группа и PVP">
+			<check_m_bPremNotInTeam Caption="Prem not in team|Необх. быть вне группы" />
+			<check_m_bDistinguishedOcc Caption="Only different classes|Только разные профессии" />
+			<check_m_bCoupleOnly Caption="Couple only|Только для пар" />
+			<check_m_bAllSucc Caption="Team success|Успех всем в группе" />
+			<check_m_bAllFail Caption="Team fail|Провал всем в группе" />
+			<check_m_bTeamwork Caption="Increase mob kill counter to all teammates|Засчитывать монстров всей группе" />
+			<check_m_bRcvByTeam Caption="Receive in team|Берется в группе" />
+			<check_m_bSharedTask Caption="New teammates receive task|Нов. члены получ. квест" />
+			<check_m_bSharedAchieved Caption="Shared Achieved|Shared Achieved" />
+			<check_m_bCapFail Caption="Team leader fail|Провал только для ПЛ" />
+			<check_m_bDismAsSelfFail Caption="Disband on fail|Распустить при провале" />
+			<check_m_bCapSucc Caption="Team leader success|Успех для ПЛ" />
+			<check_m_bCntByMemPos Caption="Count member pos|Считать позиции" />
+			<check_m_bRcvChckMem Caption="Receive distance|Макс. дистанция для старта" />
+			<check_m_bCheckTeammate Caption="Complete distance|Макс. дистанция для вып." />
+			<check_m_bShowByTeam Caption="Show in team|Показывать в группе" />
+			<check_m_bShowByNotInTeam Caption="Show out of team|Показывать вне группы" />
+			<check_m_bPQSubTask Caption="PQ SubTask|PQ SubTask" />
+			<check_m_bPQTask Caption="PQ Task|PQ Task" />
+			<check_m_bChangePQRanking Caption="Change PQ Ranking|Change PQ Ranking" />
+			<check_m_bShowByTitle Caption="Prem titles|Титулы" />
+			<check_m_bShowByPreTask Caption="Prem tasks|Связи" />
+			
+			<pPVPtask Caption="PvP task|PvP задание" />
+			<pMonContrib Caption="Monsters Contrib|Monsters Contrib" />
+			
+			<lvPlayerWanted Values="Cnt,Class mask,MinLV,MaxLV,Gen,Force,C,Item,Cnt,Prob|Кол,Класс-Маска,Мин.ур,Макс.ур,Пол,Фракция,О,Предмет,Кол,Шанс" />
+			<lvTitles Values="ID|ID" />
+			<lvMutexTasks Values="Undone|Блокирующие" />
+			<lvPremiseTasks Values="Completed|Выполненные" />
+			<lvMonstersContrib Values="ID,Whole,Share,Personal|ID,Whole,Share,Personal" />
+			<lvTeamMemWanted Values="MinLV,MaxLV,Race,Class,Gen,Min#,Max#,Task,Force|Мин.ур,Макс.ур,Раса,Класс,Пол,Мин#,Макс#,Квест,Фракция" />
+			
+			<edit_m_iPremTitleNumRequired Label="Req title num|Треб. титулов" Indent="15|9" />
+			<edit_m_ulPremise_Task_Least_Num Label="Min completed tasks required|Треб. как мин. вып. квестов" Indent="9|10" />			
+		</pTabPQ>
+		
+		<pTabLocations Caption="Locations|Локации">
+			<check_m_bLeaveRegionFail Caption="Fail on region leave|Провал при выходе из зоны" />
+			<check_m_bDelvInZone Caption="Receives in zone|Выдаётся в зоне" />
+			<check_m_bEnterRegionFail Caption="Fail on region enter|Провал при входе в зону" />
+			
+			<pLeaveSite Caption="Leave region|Покинуть зону" />
+			<pTreasureMap Caption="Treasure map|Карта сокровищ" />
+			<pReachSite Caption="Reach region|Достигнуть зоны" />
+			
+			<edit_m_ulDelvWorld Label="World ID|ID мира" Indent="7|12" />
+			<edit_m_ulReachSiteId Label="World ID|ID мира" Indent="7|12" />
+			<edit_m_ulEnterRegionWorld Label="World ID|ID мира" Indent="7|12" />
+			<edit_m_ulLeaveSiteId Label="World ID|ID мира" Indent="7|12" />
+			<edit_m_ulLeaveRegionWorld Label="World ID|ID мира" Indent="7|12" />
+			
+			<edit_m_TreasureStartZoneX Label="Center|Центр" Indent="40|44" />
+			<edit_m_ucZonesNumX Label="X-Axis segments amount|Количество отрезков по оси X" Indent="102|66" />
+			<edit_m_ucZonesNumZ Label="Z-Axis segments amount|Количество отрезков по оси Z" Indent="102|66" />
+			<edit_m_ucZoneSide Label="Segment length|Длина отрезка" Indent="155|159" />
+		</pTabLocations>
+		
+		<pTabAwards Caption="Awards|Награды">
+			<comboAwardType Label="Award type|Тип нагр." Indent="9|19" Values="Success,Fail,Timed success,Timed fail,Items success,Items fail|Успех,Провал,Успех по времени,Провал по времени,Items Success,Items Fail" />
+			<combo_m_ulAwardType_S Label="Success type|Тип успеха" Indent="10|19" Values="Common,For each item,By time,By item|Обычный,За каждый предмет,Награда по времени,Награда по предмету" />
+			<combo_m_ulAwardType_F Label="Fail type|Тип провала" Indent="36|11" Values="Common,For each item,By time,By item|Обычный,За каждый предмет,Награда по времени,Награда по предмету" />	
+
+			<pAwardPQPts Caption="Public quest points|Очки глобальных квестов" />
+			<pAwardProps Caption="Properties|Свойства" />			
+			<check_m_bExpandRealmLevelMax Caption="Expand next realm|Откр. след. небо" />
+			<check_Award_m_bTrigCtrl Caption="Trigger|Триггер" />
+			<check_m_bDivorce Caption="Divorce|Развод" />
+			<check_m_bAwardDeath Caption="Kill player|Убить персонажа" />
+			<check_m_bSendMsg Caption="Message|Сообщение" />
+			
+			<edit_m_ulDividend Label="Event gold|Ивент-голд" Indent="19|13" />
+			<edit_m_ulGoldNum Label="Coins|Юани" Indent="44|44" />
+			<edit_m_lReputation Label="Reputation|Репутация" Indent="18|17" />
+			<edit_m_ulSP Label="Spirit|Дух" Indent="46|54" />
+			<edit_m_ulNewTask Label="Start quest|Актив. квест" Indent="13|2" />
+			<edit_m_ulRealmExp Label="Realm exp|Опыт неба" Indent="18|17" />
+			<edit_m_ulExp Label="Exp|Опыт" Indent="55|46" />
+			<edit_m_ulFuryULimit Label="Fury|Ярость" Indent="51|36" />
+			<edit_m_iLeaderShip Label="Leadership|Очки лидер." Indent="17|5" />
+			<edit_m_ulSpecifyContribTaskID Label="Add to quest|Доб. в квест" Indent="2|1" />
+			<edit_m_ulSpecifyContribSubTaskID Label="To subquest|В подквест" Indent="5|8" />
+			<edit_m_ulSpecifyContrib Label="Amount|Кол. очков" Indent="30|9" />
+			<edit_m_ulContrib Label="Contribution|Вклад" Indent="9|42" />
+			<edit_m_ulLowestcontrib Label="Min. contrib|Мин. вклад" Indent="13|12" />
+			<edit_m_ulRandContrib Label="Rand. contrib|Случ. вклад" Indent="3|5" />
+			<edit_m_ulNewRelayStation Label="New Trans Pt|Точка ТП" Indent="1|22" />
+			
+			<combo_m_iTaskLimit Label="Task limit|Кв. доступно" Indent="24|2" Values="0,20,30" />
+			<combo_m_ulNewPeriod Label="Status|Статус" Indent="40|37" Values="0 None,1 Spiritual Adept,2 Aware of Principle,3 Aware of Harmony,4 Aware of Discord,5 Aware of Coalescence,6 Transcendant,7 Enlightened One,8 Aware of Vacuity,20 Aware of Myriad,21 Master of Harmony,22 Celestial Sage,30 Aware of the Void,31 Master of Discord,32 Celestial Demon|0 Нет,1 Любопытный,2 Опытный,3 Рассудительный,4 Загадочный,5 Жестокий,6 Злой,7 Отрешенный,8 Благочестивый,20 Безупречный,21 Просвещенный,22 Бессмертный,30 Демон,31 Дух зла,32 Сын ада" />
+			<combo_m_nMsgChannel Values="Normal,World,Squad,Faction,Whisper,Damage Message,Combat Message,Trade,System Message,System Broadcast,Other Messag,Unknown,Horn,King|Обычный,Мир,Команда,Клан,Личный,Damage,Combat,Торговый,Системный,Объявление,Другой,Unknown,Горн,King" />
+			
+			<pAwardForce Caption="Force|Фракция" />
+			<pAwardIncCap Caption="Increase capacity|Увеличение вместимости" />
+			<pAwardTransTo Caption="Teleport|Телепорт" />
+			<check_m_bAwardSkill Caption="Skill|Скилл" />
+			<edit_m_ulStorehouseSize Label="Storehouse|Склад" Indent="3|30" />
+			<edit_m_ulStorehouseSize2 Label="Cupboard|Склад рес." Indent="16|6" />
+			<edit_m_ulStorehouseSize3 Label="Wardrobe|Гардероб" Indent="16|15" />
+			<edit_m_ulStorehouseSize4 Label="Acc. stash|Общ. склад" Indent="13|2" />
+			<edit_m_lInventorySize Label="Inventory|Инвентарь" Indent="12|6" />
+			<edit_m_ulPetInventorySize Label="Pet inv.|Клетка" Indent="24|27" />
+			<edit_m_iAwardSkillLevel Label="Level|Уровень" Indent="40|20" />
+			<edit_m_iFactionContrib Label="Fact. contrib|Вклад КХ" Indent="-2|11" />
+			<edit_m_iFactionExpContrib Label="Faction exp|Опыт КХ" Indent="5|20" />
+			<edit_m_iForceContribution Label="Contribution|Вклад" Indent="-2|31" />
+			<edit_m_iForceActivity Label="Activity|Activity" Indent="28|28" />
+			<edit_m_iForceReputation Label="Reputation|Престиж" Indent="7|19" />
+			<edit_m_iForceSetRepu Label="Set Rep.|Уст.престиж" Indent="21|-1" />
+			
+			<check_m_bRandChoose Caption="Rand one|Случайный" />
+			<check_mon_m_bRandChoose Caption="Rand|Случ." />
+			<check_m_bDeathDisappear Caption="Disapp. on player death|Исч. при смерти перс." />
+			<check_m_bAwardByProf Caption="Separately for each class|Отдельно для каждого класса" />
+			
+			<edit_m_ulSummonRadius Label="Radius|Радиус" Indent="1|1" />
+			
+			<lvAwardItemsCand Values="C,Item,Cnt,Prob,Period|О,Предмет,Кол,Шанс,Период" />
+			<lvAwardMostersSummoned Values="ID,Cnt,Prob,Period|ID,Кол,Шанс,Период" />
+			<lvRankedAward Values="C,Item,Count,Min,Max,Period|О,Предмет,Кол-во,От,До,Период" />
+			<lvAwardTitles Values="ID,Period|ID,Период" />
+			<lvAwardChangeKeys Values="Key,op,Value|Ключ,оп,Значение" />
+			<lvAwardHistoryChangeKeys Values="Key,op,Value|Ключ,оп,Значение" />
+			<lvAwardExpressions Values="#,Expression|#,Выражение" />
+			<lvAwardTaskExpressions Values="Value,Type|Значение,Тип" />
+			<lvAwardDisplayKeys Values="Keys|Keys" />
+			<lvAwardTaskChars Values="Messages|Сообщение" />
+		</pTabAwards>
+		
+		<pTabDialogs Caption="Dialogs|Диалоги">
+			<pChatMessage Caption="Chat Message|Сообщение в чат" />
+			<pMainText Caption="Main text|Основной текст" />
+			<pDialogTree Caption="Talks|Диалоги" />		
+		</pTabDialogs>
+		
+		<pTabKeys Caption="Keys and expressions|Ключи и выражения">
+			<combo_m_Prem1KeyValuenLeftType Values="Key,Value|Ключ,Значение" />
+			<combo_m_Prem2KeyValuenLeftType Values="Key,Value|Ключ,Значение" />
+			<combo_m_Prem1KeyValuenRightType Values="Key,Value|Ключ,Значение" />
+			<combo_m_Prem2KeyValuenRightType Values="Key,Value|Ключ,Значение" />
+			<combo_m_Fin1KeyValuenRightType Values="Key,Value|Ключ,Значение" />
+			<combo_m_Fin2KeyValuenRightType Values="Key,Value|Ключ,Значение" />
+			<combo_m_Fin2KeyValuenLeftType Values="Key,Value|Ключ,Значение" />
+			<combo_m_Fin1KeyValuenLeftType Values="Key,Value|Ключ,Значение" />
+			
+			<check_m_bFinNeedComp Caption="Complete condition|Условие выполнения" />
+			<check_m_bPremNeedComp Caption="Activate condition|Условие активации" />
+			
+			<pKeysMsg Caption="Keys and messages|Ключи и сообщения" />
+			
+			<lvChangeKeys Values="Key,op,Value|Ключ,оп,Значение" />
+			<lvTaskChars Values="Messages|Сообщение" />
+			<lvExpressions Values="#,Expression|#,Выражение" />
+			<lvTaskExpressions Values="Value,Type|Значение,Тип" />
+			<lvPQExpressions Values="#,Expression|#,Выражение" />
+			<lvPQTaskExpressions Values="Value,Type|Значение,Тип" />
+		</pTabKeys>
+	</PerfectQuestEditMain>
+	
+	<PerfectQuestEditSettings>
+		<cbAutoBase Caption="Search base address automatically|Искать базовый адрес автоматически" />
+		<cbInsertAuthor Caption="Autoset quest author|Автоматически вписывать автора" />
+		<cbColorize Caption="Colorize quest names|Окрашивать имена квестов" />
+		<cbGroupDigits Caption="Digit grouping|Группировать цифры по разрядам" />
+		<comboFloatDisplay Label="Display probability|Показывать шансы" Values="0.0000—1.0000,0.00—100.00" />
+		<cbChangeNameMass Caption="Apply quest name to all selected|Применять имя квеста всем выделенным" />
+		<cbShowItemsID Caption="Show ID in items lists|Показывать ID в списках предметов" />
+		<cbMakeBackup Caption="Make backup in current directory before saving|Создавать резервную копию файла в указанной директории" />
+		<cbCompressBackup Caption="Compress|Сжимать" />
+		<cbFullLoad Caption="Autoload secondary files|Загружать вспомогательные файлы автоматически" />
+		<cbAutoload Caption="Load last edited tasks.data on start|Загружать последний tasks при запуске" />
+		<cbActivateUDEBridge Caption="Activate data-bridge to Universal data Editor|Активировать взаимодействие с Unversal data Editor" />
+		<pRoleCoords Caption="Role coordinates|Координаты персонажа" />
+		<pQuestProcessing Caption="Quest processing|Работа с квестами" />
+		<pAddSettings Caption="Additional settings|Дополнительные настройки" />
+		<eProcessName Label="Process name|Имя процесса" Indent="15|14" />
+		<eBase Label="Client base address|Базовый адрес клиента" Indent="109|81" />
+		<eCharOffset Label="Role structure offset|Смещение структуры персонажа" Indent="106|29" />
+		<comboCloneType Label="Import insert mode|Способ вставки квестов" Indent="111|79" Values="First,Next,Last|В начало,Следом,В конец" />
+		<comboSkin Label="Color|Цвет" Values="Dark,Light|Тёмный,Светлый" />
+		<comboLang Label="Language|Язык" />
+		<sbShowUpdate Caption="New version is avaliable|Доступна новая версия" />
+	</PerfectQuestEditSettings>
+	
+	<PerfectQuestEditFilter>
+		<sbExecuteQuery Caption="Apply filter|Применить фильтр" />
+		<sbNewCond Caption="New condition|Добавить условие" />
+	</PerfectQuestEditFilter>
+	
+	<PerfectQuestEditUpdate>
+		<sbUpdate Caption="Update|Обновить" />
+	</PerfectQuestEditUpdate>
+	
+	<PerfectQuestEditTimeGen>
+		<sbConfirmTime Caption="OK (Enter)|OK (Enter)" />
+		<sbCancelTime Caption="Cancel (Esc)|Отмена (Esc)" />
+		<eSecFull Label="Full time (sec)|Полн. время(сек)" />
+	</PerfectQuestEditTimeGen>
+	
+	<PerfectQuestEditRewrite>
+		<sbRewrite Caption="Rewrite existing quest|Перезаписать существующий квест" />
+		<sbAppend Caption="Save source quest with unique ID|Сохранить квест-источник с новым ID" />
+		<sbSkip Caption="Skip|Пропустить" />
+	</PerfectQuestEditRewrite>
+	
+	
+	<PerfectQuestEditUnused>
+		<check_m_bReadyToNotifyServer Caption="Ready Notify Server|Ready Notify Server" />
+		<check_m_bShieldUser Caption="Shield User|Shield User" />
+		<check_m_bShowByRMB Caption="Show By RMB|Show By RMB" />
+		<check_m_bAbsFail Caption="AbsFail|AbsFail" />
+		<check_m_bShowByCharTime Caption="Char Time|Char Time" />
+		<check_m_bCharTime Caption="Active|Active" />
+		<check_m_bUseLevCo Caption="Use Lev Co|Use Lev Co" />
+		<check_m_bMulti Caption="Multi|Multi" />
+		<check_m_bAwardDeathWithLoss Caption="Award Death With Loss|Award Death With Loss" />
+		
+		<combo_m_DynTaskType Label="Dynamic type|Динамическ. тип" Values="None,Special Award,Normal,Gift Card|None,Special Award,Normal,Gift Card" />
+		<combo_m_tmCharEndTime_WD Values="All,Mon,Tue,Wen,Thu,Fri,Sat,Sun|Все,ПН,ВТ,СР,ЧТ,ПТ,СБ,ВС" />
+		<combo_m_tmAbsFailTime_WD Values="All,Mon,Tue,Wen,Thu,Fri,Sat,Sun|Все,ПН,ВТ,СР,ЧТ,ПТ,СБ,ВС" />
+		
+		<edit_m_ulNPCToProtect Label="Protect NPC|Защитить NPC" />
+		<edit_m_ulSpecialAward Label="Special award|Special award" />
+		<edit_m_ulCoTaskCond Label="CoTask Cond|CoTask Cond" />
+		<edit_m_ulPremise_Cotask Label="Prem CoTask|Prem CoTask" />
+		<edit_m_ulProtectTimeLen Label="Protect time|Период защ." />
+		<edit_m_ulNPCMoving Label="NPC moving|NPC движ." />
+		<edit_m_ulNPCDestSite Label="Dest site|Положение" />
+		<edit_m_iCharStartTime Label="Start|Start" />
+		<edit_m_iCharEndTime Label="End|End" />
+		<edit_m_ulCharTimeGreaterThan Label="Time greater than|Time greater than" />
+		<edit_m_ulParent Label="Parent|Родительский" />
+		<edit_m_ulFirstChild Label="First child|1-й дочерний" />
+		<edit_m_ulPrevSibling Label="Prev sibling|Пред. соседний" />
+		<edit_m_ulNextSibling Label="Next sibling|След. соседний" />
+		<edit_m_nNumType Label="Num Type|Num Type" />
+		<edit_m_lNum Label="Num|Num" />
+		
+		<pUnusedAwards Caption="Awards|Награды" />
+		<pUnusedText Caption="Texts|Тексты" />
+	</PerfectQuestEditUnused>
+	
+	<PerfectQuestEditInterpreter>
+		<sbApplyExpression Caption="Calculate expression|Вычислить выражение" />
+	</PerfectQuestEditInterpreter>
+	
+</InterfaceLanguage>
