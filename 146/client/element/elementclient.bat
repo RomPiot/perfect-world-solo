@@ -1,1 +1,0 @@
-start elementclient.exe startbypatcher game:cpw console:1 nocheck
