@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<root ProductName='NpcGen Editor By Luka'>
+	<Settings>
+		<Version>1.5</Version>
+		<Language>2</Language>
+		<Interface_Color>2</Interface_Color>
+		<ElementPath>C:\projects\perfect-world-solo\146\client\element\data\elements.data</ElementPath>
+		<NpcgenPath>C:\projects\perfect-world-solo\146\server\gamed\config\world\npcgen.data</NpcgenPath>
+		<SurfacesPath>C:\projects\perfect-world-solo\146\client\element\surfaces.pck</SurfacesPath>
+		<ClientVersion>7</ClientVersion>
+		<MobsOrNpcsHotKey>0+0</MobsOrNpcsHotKey>
+		<ResourcesHotKey>0+0</ResourcesHotKey>
+		<DynamicsHotKey>0+0</DynamicsHotKey>
+	</Settings>
+	<Existence_properties>
+		<Existence_ID>16</Existence_ID>
+		<Existence_Amount>1</Existence_Amount>
+		<Existence_RespawnTime>60</Existence_RespawnTime>
+		<Existence_Trigger>0</Existence_Trigger>
+		<Existence_Location>0</Existence_Location>
+		<Existence_Type>0</Existence_Type>
+	</Existence_properties>
+	<Resources_properties>
+		<Resources_ID>16</Resources_ID>
+		<Resources_Amount>1</Resources_Amount>
+		<Resources_RespawnTime>60</Resources_RespawnTime>
+		<Resources_Trigger>3074</Resources_Trigger>
+	</Resources_properties>
+	<Dynamics_properties>
+		<Dynamics_Trigger>0</Dynamics_Trigger>
+		<Dynamics_ID>0</Dynamics_ID>
+	</Dynamics_properties>
+</root>

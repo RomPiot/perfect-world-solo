@@ -1,0 +1,144 @@
+Version 1.1
+•Add ability to edit Gshop.data v27
+•Add ability to set Timestamp;
+
+Version 1.2
+•Added icon choosing ability from separate window(Image below)
+•Added english language on main window;
+•Added supported elements.data version - 1.4.6 v80
+•Speeded up images loading from Surfaces.pck
+
+Version 1.3
+•Fixed error when click "Add items from elements.data" in items list.
+•Increased range of maximul value of Id,price,amount and so one.
+•Fixes mistakes in IconChoose window.
+•Change text color on main form from black to white.
+•Change price shown format.Now it looks like Gold,silver.
+•Added support elements.data version -1.4.4 v60.
+•Added automatic refreshing list after loading elements.data+surfaces.pck.
+•Translated all windows.
+•Added Elements.data lists english translation in "Item choosing from elements.data" window
+
+Version 1.4
+•Programme has fully translated to english.
+•Added ability to rename categories/subcategories in category_change window.
+•Improved some bugs in category_change window.
+•Now if elements.data is loaded,in the separate field will be shown items real name.
+•Added ability to set items read names from elements.data
+•Fixed bug with reading surfaces.pck version higher than 1.5.3 client.Also increased horizontally image count to 9.
+•Added supported elements.data version•1.4.2 v27
+•Added gshop.data supported version:Now days russian official and china official
+•Added ability to open/edit/save/convert(To another version,from another version,to server file) above said versions
+•Other changes
+
+Version 1.5
+•Improved clone button for version higher 1.5.2
+•Add elements.data supported versions:v12,v17,1.4.8 v80,v100
+•Activated button "Delete category",after clicking,selected subcategory will be deleted.And items which were in this subcategory move to first sub_category.
+•Added search in items choosing window from elements.data
+•Added filter/bug fixes window.It supports autoimproving prices,amount,control,don't match names with real(Image below)
+•Other changes
+
+Version 1.6
+•Add ability to cancel "Back up files creation"
+•Improved bug with item explanation changing
+•add ability to load item_ext_desc from configs.pck.After loading,appears ability to set items descriptions from this file,of couse if items description exists in it
+•Added supported elements.data version:v66,v102,v99,v112
+•Added help info to filter and bug fix window
+•Added ability to search items which description doesn't match with Item_ext_desc.txt description.Also search error in Gift id and gift amount
+•Improved some bugs in filter and bug search window
+- Other changes related to english and interface
+
+Version 1.7
+•Added ability to create file.Extra-create new gshop.data file-select version
+•Added ability to check error on Status value.There was a bug when converting from 1.5.5 to lower versions
+•Added ability to check Gifts existence in elements.data
+•Added moving to selected item ability
+•Added elements.data supported version - v7,v104,v105,v106,v108
+•Added ability to change price in amount changing relation.
+•Fixed many bugs and also changed some elements in interface
+
+Version 1.8
+•Redisagned main window interface
+•Added setting file.In it will be written last loaded programm setting,including last loaded gshop.data,elements.data,surfaces.pck,configs.pck and so one;
+•Added Elements.data support verions - v62,v68,v69,v84
+•Fixed items up/down moving
+•Added ability to move Sub_categories in Categories editing form
+•Added ability to choose main windors color Clear/Dark
+•Fixed some gshop.data wrong loading
+
+Version 1.9
+•Added ability to search items with ID in elements.data window,and also fixed some bugs.
+•added ability to move categories with subcategories and items in it using Drag-And-Drop in categories edit window
+•Added ability to move subcategories to other categories with items in it by using Drag-And-Drop in categories edit window
+•Added displaying number of items in subcategory name
+•Change interface some defails
+•Added ability to improve items with not found ID in elements.data.This don't work and can't work ideal.It works like programm is searching for item name in elements.data,and sets its' ID
+•Added ability to select change/not change item name when changin ID
+•Refreshed informtion in errors searching window
+•Other small changes
+
+Version 2.0
+•Added export/import ability from any version to any version
+•Added ability to selected change/not change item description when changed ID.
+•Fix bug when icons wasn't changing after id changed.
+•Added ability to delete all items and sub categories in category(Click RMB on categories buttons on main window)
+•Fixed all found bugs
+
+Version 2.0Fixes
+•Fixed bug with saving after clicking button "Delete all items and subcategoris in category".
+•Deleted button-Change price relation to changing amount;
+•Redesigned some interface elements.
+•Fixed bug when after cloning,Sale values changing would call source items values changing.
+•Fixed bug when after changing selected sale,price was displayed incorrectly/
+•Now rows indexes starts from 1.
+•Other small bug fixes.
+•Added element.data supported version:v6
+•Fixed bug when loading elements.data+Surfaces.pck,now sorting icon won't take some second 
+•Other changes
+
+Version 2.1
+•Added loading files history
+•Add ability to load second gshop.data file for interaction with main
+•Added editor auto-update ability.For updating,need to click on button which will appear when new update comes
+•Added ability to send error messages to developer
+•Updated erros searching.Added new checks
+            •Does item or gift amount in shop exceed maximal amount in elements.data
+            •Does Npc-seller exist
+            •Does item category or sub-category exist
+•Added ability to set all items price to 1 silver
+•Added ability to set all items real name
+•Added ability to set all items read name with amount.It will add like Name (n),of course if amount is higher than 1
+•Added ability to set all items description
+•Added ability to set all items maximal amount from elements data
+•Changed elements data reading method.Now editor uses configs.Prefer not to change existing configs in directory with editor.
+•Now description in game view will appear in separate window
+•Changed Npc-sellers displaying method
+•Changed editing values in fields.Now if value isn't change,nothing will happen.For forcibly changing,press enter.
+•Fixed "Categories edit window".Now Drag&Drop won't appear immidiatly,need to hold mouse clicked for half second
+•Fixed Categories\subcategories names changing in "Categories Edit Window"
+•Fixed gshop converting for 1.3.6 to 1.4.4+
+•Fixed error with iconlist_ivtrm processing,now all icons will be displayed
+•Other changed and bug fixes
+
+Version 2.1-2.15
+•Fixed a lot errors and finishes auto-update
+•Now after an update will appear separate window with informtion about it
+•Fixed some issues with sending emails with error
+•fixed error with saving 1.3.6 and 1.4.2 v27
+•Fixed error with reading surfaces.pck 1.5.5+
+
+Version 2.16-2.17
+•Fixed "bug" with 9 category in gshop version 1.5.3 and higher.Now it's possible to add it,if doesn't exist
+•Changed pck reading method.Now it loads faster,also,now it's possible to open archives event client is running
+•Now when saving,if file gshop1.data was loaded,it will save in gshop1.data,not gshop.data as it was before
+•Added ability to load gshop with drag&drop on window
+•Added ability to set custom timestamp
+•Some changes in interface
+•Fixed manu bugs
+
+
+Version 2.2.1-2.3
+•Added ability to color style rows in grid to green(M)\pink(F) color,you can disable function in "extra" menu
+•There was added 3(Major type,sub type,gender) extra columns in items choosing window from elements.data in Fashion List,also ability to sort them with clicking on header
+•Other changes and bug fixes

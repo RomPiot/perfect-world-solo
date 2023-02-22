@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<root ProductName='Gshop Editor by Luka'>
+	<Settings>
+		<Version>2.3.1</Version>
+		<LastPath>C:\Users\Romain\Downloads\drive-download-20230218T002719Z-001\gshop.data</LastPath>
+		<SecondGshopLastPath>Not Loaded</SecondGshopLastPath>
+		<ElementsDataPath>C:\Users\Romain\Downloads\drive-download-20230218T002719Z-001\elements.data</ElementsDataPath>
+		<SurfacesPckPath>C:\Users\Romain\Downloads\drive-download-20230218T002719Z-001\surfaces.pck</SurfacesPckPath>
+		<ConfigsPckPath>C:\Users\Romhi\Desktop\configs.pck</ConfigsPckPath>
+		<Language>English</Language>
+		<CreateBackUpFile>True</CreateBackUpFile>
+		<Color>Clear</Color>
+		<ChangeNameWhenIDChanged>True</ChangeNameWhenIDChanged>
+		<ChangeDescriptionWhenIDChanged>True</ChangeDescriptionWhenIDChanged>
+		<ChangeStyleRowColor>True</ChangeStyleRowColor>
+		<IsFirstRunAfterUpdate>False</IsFirstRunAfterUpdate>
+	</Settings>
+	<LastLoadedFiles>
+		<Count>6</Count>
+		<path_1>C:\Users\Romain\Downloads\drive-download-20230218T002719Z-001\gshop.data</path_1>
+		<path_2>C:\Users\Romain\Downloads\Perfect World International 155 v159\element\data\gshop.data</path_2>
+		<path_3>C:\Users\Romain\Downloads\Perfect World International 155 v159\element\data\gshop2.data</path_3>
+		<path_4>C:\Users\Romain\Downloads\Perfect World International 155 v159\element\data\gshop1.data</path_4>
+		<path_5>C:\Users\Romhi\Desktop\gshop.data</path_5>
+		<path_6>C:\Users\Romhi\Downloads\gshop.data</path_6>
+	</LastLoadedFiles>
+</root>
